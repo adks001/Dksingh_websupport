@@ -3343,4 +3343,64 @@ code, pre {
     opacity: 0.85;
 }
 
+/* Colorful Interactive Nav Icons (Visible easily on Mobile/Desktop) */
+/* Dashboard (Blue) */
+#tab-btn-dashboard .nav-icon, #mob-btn-dashboard .nav-icon {
+    color: #3b82f6 !important; /* Soft royal blue */
+    opacity: 0.75;
+}
+#tab-btn-dashboard.active {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    border-left: 3px solid #3b82f6;
+    color: #60a5fa !important;
+}
+#tab-btn-dashboard.active .nav-icon, #mob-btn-dashboard.active .nav-icon {
+    color: #60a5fa !important;
+    opacity: 1 !important;
+}
+#mob-btn-dashboard.active {
+    color: #60a5fa !important;
+}
+
+/* Application Writer (Gold/Amber) */
+#tab-btn-learning .nav-icon, #mob-btn-learning .nav-icon {
+    color: #f59e0b !important; /* Amber */
+    opacity: 0.75;
+}
+#tab-btn-learning.active {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    border-left: 3px solid #f59e0b;
+    color: #fbbf24 !important;
+}
+#tab-btn-learning.active .nav-icon, #mob-btn-learning.active .nav-icon {
+    color: #fbbf24 !important;
+    opacity: 1 !important;
+}
+#mob-btn-learning.active {
+    color: #fbbf24 !important;
+}
+
+/* Excel Assistance (Green) */
+#tab-btn-cheatsheet .nav-icon, #mob-btn-cheatsheet .nav-icon {
+    color: #10b981 !important; /* Emerald Green */
+    opacity: 0.75;
+}
+#tab-btn-cheatsheet.active {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-left: 3px solid #10b981;
+    color: #34d399 !important;
+}
+#tab-btn-cheatsheet.active .nav-icon, #mob-btn-cheatsheet.active .nav-icon {
+    color: #34d399 !important;
+    opacity: 1 !important;
+}
+#mob-btn-cheatsheet.active {
+    color: #34d399 !important;
+}
+
+/* Active Bottom Nav Items Override */
+.bottom-nav-item.active {
+    font-weight: 700;
+}
+
 
