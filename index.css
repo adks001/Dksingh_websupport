@@ -2490,6 +2490,40 @@ code, pre {
         margin-left: 10px;
     }
     
+    /* Mobile-first spreadsheet simulator adjustments */
+    .visual-simulator-box {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding: 12px 10px !important;
+    }
+    
+    .simulator-tables-flex {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .sim-table-wrap {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+    
+    .sim-grid-table {
+        min-width: 310px !important;
+        width: 100% !important;
+    }
+    
+    .sim-grid-table th, .sim-grid-table td {
+        padding: 5px 6px !important;
+        font-size: 10.5px !important;
+        height: auto !important;
+    }
+    
+    .simulator-formula-bar {
+        padding: 6px 8px !important;
+        font-size: 11px !important;
+    }
 }
 
 /* -------------------------------------------------------------
