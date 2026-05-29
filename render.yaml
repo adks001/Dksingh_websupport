@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: dksingh-web-hub
+    env: static
+    buildCommand: ""
+    publishPath: "."
