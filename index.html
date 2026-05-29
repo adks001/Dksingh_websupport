@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.K. Singh Web Hub - Data Operations & Application Writing Portal</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional dashboard and application writing portal for Dhananjay Kumar Singh, Dispatch Officer at Coal India (CCL). Features custom Excel assistance tools and career journey logs.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-layout">
+        
+        <!-- Persistent Left Sidebar (Desktop Only) -->
+        <aside class="sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <div class="avatar-container">
+                    <img src="assets/images/office_desk.jpg" alt="D.K. Singh Profile Picture" class="avatar-img" id="sidebar-avatar">
+                    <div class="avatar-badge">CI</div>
+                </div>
+                <div class="user-meta">
+                    <h2 class="user-name">D.K. Singh</h2>
+                    <p class="user-role">Dispatch Officer</p>
+                    <p class="user-company">Coal India Limited / CCL</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <button class="nav-item active" id="tab-btn-dashboard" onclick="switchTab('dashboard')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>Dashboard & Bio</span>
+                </button>
+                <button class="nav-item" id="tab-btn-learning" onclick="switchTab('learning')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    <span>Application Writing</span>
+                </button>
+                <button class="nav-item" id="tab-btn-cheatsheet" onclick="switchTab('cheatsheet')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                    <span>Excel Assistance</span>
+                </button>
+            </nav>
+            
+            <!-- Search History Log in Sidebar -->
+            <div class="sidebar-card">
+                <div class="card-head-h">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tiny-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <h4>Recent Search History</h4>
+                </div>
+                <ul class="history-list" id="sidebar-history-list">
+                    <li class="history-placeholder">No recent queries</li>
+                </ul>
+            </div>
+            
+            <!-- Sidebar Footer with Theme Toggle -->
+            <div class="sidebar-footer">
+                <div class="theme-controller">
+                    <span class="theme-label">Theme Mode:</span>
+                    <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light theme">
+                        <svg id="theme-icon-sun" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <svg id="theme-icon-moon" class="theme-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Panel Content -->
+        <main class="main-content">
+            
+            <!-- Mobile Header Profile Zone -->
+            <header class="mobile-header">
+                <div class="mobile-user-info">
+                    <img src="assets/images/office_desk.jpg" alt="D.K. Singh Profile Picture" class="mobile-avatar" id="mobile-avatar-img">
+                    <div>
+                        <h1 class="mobile-title">D.K. Singh Web Hub</h1>
+                        <span class="mobile-badge">CCL Dispatch Officer</span>
+                    </div>
+                </div>
+                <button class="theme-toggle-btn mobile-theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                    <svg class="theme-icon sun-mob" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+                </button>
+            </header>
+            
+            <!-- DASHBOARD TAB SECTION -->
+            <section class="tab-panel active" id="panel-dashboard">
+                
+                <!-- Welcome Alert / Banner (Hinglish Welcoming) -->
+                <div class="welcome-banner">
+                    <div class="banner-text">
+                        <h3>Welcome to your Web Hub, Dhananjay ji! 👋</h3>
+                        <p>Aapka technical operations portal aur digital timeline ready hai. Dispatch management templates, official drafting tools, aur interactive visual simulators explore karein.</p>
+                    </div>
+                    <div class="banner-badge">CCL Operations</div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- Bio Card (Hinglish/English) -->
+                    <div class="glass-card bio-card">
+                        <div class="card-header">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <h2>Professional Bio & CCL Journey</h2>
+                        </div>
+                        
+                        <div class="bio-content">
+                            <p class="highlight-text" id="bio-exact-text">
+                                Seasoned Mining & Coal Operations Leader with <strong>35+ years</strong> of progressive experience in <strong>Coal India Limited (CCL / SECL)</strong>.
+                            </p>
+                            <p class="bio-para">
+                                <strong>Mr. Dhananjay Kumar Singh</strong> ek experienced Mining aur Coal Operations Leader hain, jinhone Coal India Limited ki subsidiary Central Coalfields Limited (CCL) aur SECL ke sath ek highly accomplished mining career span kiya hai. Unhone ground level par ek <strong>Mining Sardar</strong> ke roop me shuruat ki thi, aur time-to-time departmental examinations qualify karke promote hote hue <strong>Senior Mining Sardar</strong>, <strong>Overman</strong>, <strong>Senior Overman</strong>, <strong>Manager</strong>, aur finally senior <strong>Dispatch Officer</strong> ke key operational roles me contribute kiya hai. Is journey se unhe coal mining value chain ki end-to-end practical knowledge aur operational safety expertise mili hai.
+                            </p>
+                            <p class="bio-para">
+                                Unka experience mine production planning, safety regulations, workforce supervision, dispatch optimization, railway rake coordination, rake management, aur stakeholder engagement me hai. Unhone manual systems ko digitize karne ke liye advanced Excel macros and VBA logics develop kiye aur smooth, delay-free operations ke liye specialized Service Level Agreements (SLAs) draft kiye, jisse Coal India dispatch turnaround aur work culture improvement me help mili hai.
+                            </p>
+                            <p class="bio-para">
+                                Post-retirement, Dhananjay ji advisory, consulting, mentoring, safety audits, and training assignments ke liye available hain. Vo safety practices aur dispatch operations optimize karne me infrastructure, logistics agencies, and power sector enterprises ko guide karne ke liye eager hain.
+                            </p>
+                            
+                            <div class="skills-tag-group">
+                                <span class="skill-tag">Mining & Coal Expert</span>
+                                <span class="skill-tag">35+ Years CIL/CCL</span>
+                                <span class="skill-tag">SLA & Regulatory Compliance</span>
+                                <span class="skill-tag">Advanced Macros & VBA</span>
+                                <span class="skill-tag">Industry Mentor</span>
+                                <span class="skill-tag">Hinglish Prompting</span>
+                            </div>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="facts-grid">
+                                <div class="fact-item">
+                                    <div class="fact-title">Experience</div>
+                                    <div class="fact-value">35+ Years</div>
+                                </div>
+                                <div class="fact-item">
+                                    <div class="fact-title">Organization</div>
+                                    <div class="fact-value">Coal India / CCL</div>
+                                </div>
+                                <div class="fact-item">
+                                    <div class="fact-title">Excel Focus</div>
+                                    <div class="fact-value">Macros & Automation</div>
+                                </div>
+                                <div class="fact-item">
+                                    <div class="fact-title">Availability</div>
+                                    <div class="fact-value">Advisory & Mentoring</div>
+                                </div>
+                            </div>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="contact-section">
+                                <h4 class="contact-title" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--primary-navy); margin-bottom: 12px; letter-spacing: 0.5px;">Contact & Inquiries</h4>
+                                <div class="contact-buttons-flex" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                    <a href="https://wa.me/916201745515" target="_blank" class="btn-primary contact-btn-wa" style="display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: #25d366; color: #ffffff; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); transition: transform 0.2s;">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.335 4.978L2 22l5.133-1.343a9.92 9.92 0 004.877 1.28h.005c5.503 0 9.987-4.479 9.988-9.985A9.99 9.99 0 0012.012 2zm4.72 13.565c-.26.732-1.298 1.332-1.782 1.4-1.272.18-2.975-.29-4.542-1.928-1.573-1.637-2.617-3.633-2.617-4.908 0-.986.326-1.53.79-1.993.18-.182.39-.244.52-.244h.358c.11 0 .26.04.37.312.13.31.42 1.03.46 1.112.04.082.02.196-.03.298l-.44.59c-.06.082-.12.164-.04.307.358.625.797 1.144 1.328 1.62.68.613 1.248.918 1.442.99.194.072.266.02.327-.05l.62-.838c.08-.102.174-.082.286-.04.11.04.706.328.828.39.12.06.204.09.235.143.03.053.03.31-.23.957z"/></svg>
+                                        <span>WhatsApp Chat</span>
+                                    </a>
+                                    <a href="mailto:9dksingh@gmail.com" class="btn-primary contact-btn-mail" style="display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: var(--primary-navy); color: #ffffff; box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2); transition: transform 0.2s;">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        <span>Email Inquiries</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coal India & CCL Operations Information Board -->
+                    <div class="glass-card ccl-info-card">
+                        <div class="card-header flex-header-between">
+                            <div class="header-tab-title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="9" y1="22" x2="9" y2="10"></line><line x1="17" y1="4" x2="17" y2="10"></line></svg>
+                                <h2>CIL / CCL Operations & Pension Hub</h2>
+                            </div>
+                            <span class="live-pulse-badge">
+                                <span class="pulse-indicator"></span>
+                                Live Feed
+                            </span>
+                        </div>
+                        
+                        <div class="ccl-hub-tabs">
+                            <button class="ccl-hub-tab active" id="hub-tab-stock" onclick="switchHubTab('stock')">CIL Stock</button>
+                            <button class="ccl-hub-tab" id="hub-tab-news" onclick="switchHubTab('news')">CCL News</button>
+                            <button class="ccl-hub-tab" id="hub-tab-pension" onclick="switchHubTab('pension')">EPFO / CMPF</button>
+                        </div>
+                        
+                        <!-- Tab 1: CIL Stock Ticker & Watchlist -->
+                        <div class="ccl-hub-panel active" id="hub-panel-stock">
+                            <div class="stock-watchlist-panel">
+                                <!-- Drill-down Stock details link -->
+                                <a href="https://www.google.com/finance/quote/COALINDIA:NSE" target="_blank" class="stock-ticker-link" id="stock-ticker-link" style="display: block; text-decoration: none; color: inherit;">
+                                    <div class="stock-ticker-box">
+                                        <div class="stock-meta">
+                                            <span class="stock-symbol">COALINDIA (NSE)</span>
+                                            <span class="stock-sector">Energy & Mining - PSU</span>
+                                        </div>
+                                        <div class="stock-price-display">
+                                            <span class="stock-currency">₹</span>
+                                            <span class="stock-price" id="cil-stock-price">442.65</span>
+                                            <span class="stock-change price-up" id="cil-stock-change">+3.45 (0.79%) ▲</span>
+                                        </div>
+                                        <p class="stock-updated-time">Market status: Live simulated ticker. Last sync: <span id="stock-last-sync">Just now</span></p>
+                                        
+                                        <div class="stock-stats-grid">
+                                            <div class="stock-stat-item">
+                                                <span class="lbl">Prev Close</span>
+                                                <span class="val">₹439.20</span>
+                                            </div>
+                                            <div class="stock-stat-item">
+                                                <span class="lbl">Open</span>
+                                                <span class="val">₹440.00</span>
+                                            </div>
+                                            <div class="stock-stat-item">
+                                                <span class="lbl">Day Range</span>
+                                                <span class="val">₹439.50 - ₹445.80</span>
+                                            </div>
+                                            <div class="stock-stat-item">
+                                                <span class="lbl">52W Range</span>
+                                                <span class="val">₹380.00 - ₹510.40</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Redesigned Watchlist Section -->
+                                <div class="watchlist-section" style="margin-top: 16px; border-top: 1px dashed var(--border-color); padding-top: 14px;">
+                                    <span style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Stock Search & Watchlist</span>
+                                    
+                                    <!-- Larger Optimized Search Bar -->
+                                    <div class="stock-search-container">
+                                        <div class="search-input-group">
+                                            <input type="text" id="add-stock-input" placeholder="Search Stock Symbol (e.g. RELIANCE, TATASTEEL, SBI)" onkeydown="if(event.key === 'Enter') handleSearchStock()">
+                                            <button onclick="handleSearchStock()" class="btn-search-stock">Search Stock</button>
+                                        </div>
+                                        
+                                        <!-- Search Validation Result Panel -->
+                                        <div id="stock-search-result" class="search-result-box hidden">
+                                            <!-- Rendered dynamically by JS -->
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Watchlist Grid (rendered as tiles) -->
+                                    <div class="watchlist-items-grid" id="stock-watchlist-container">
+                                        <!-- Loaded dynamically as mini-cards -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab 2: CCL News Feed (Clickable Tiles) -->
+                        <div class="ccl-hub-panel hidden" id="hub-panel-news">
+                            <div class="ccl-news-list">
+                                <a href="https://www.centralcoalfields.in/" target="_blank" class="news-tile-anchor" style="text-decoration: none; color: inherit; display: block; transition: transform var(--transition-speed);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                                    <div class="news-item">
+                                        <div class="news-header">
+                                            <span class="news-source">CCL Press Room</span>
+                                            <span class="news-date">Today</span>
+                                        </div>
+                                        <h4 class="news-title">CCL Sirka Argada Area launches new digital weighbridge log system</h4>
+                                        <p class="news-summary">New automation macros deployed at dispatch terminals to synchronize gate logs and reduce truck idle times by 15%.</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.coalindia.in/" target="_blank" class="news-tile-anchor" style="text-decoration: none; color: inherit; display: block; transition: transform var(--transition-speed);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                                    <div class="news-item">
+                                        <div class="news-header">
+                                            <span class="news-source">Economic Times</span>
+                                            <span class="news-date">Yesterday</span>
+                                        </div>
+                                        <h4 class="news-title">Coal India production targets revised for FY 2026-27</h4>
+                                        <p class="news-summary">Ministry of Coal plans a capital infusion of ₹15,000 crores to expand railway rake loading infrastructure across major subsidiaries.</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.cmpfo.gov.in/" target="_blank" class="news-tile-anchor" style="text-decoration: none; color: inherit; display: block; transition: transform var(--transition-speed);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                                    <div class="news-item">
+                                        <div class="news-header">
+                                            <span class="news-source">CMPF Trust</span>
+                                            <span class="news-date">2 days ago</span>
+                                        </div>
+                                        <h4 class="news-title">CMPF Trust streamlines online pension ledger claims portal</h4>
+                                        <p class="news-summary">Retired Coal India executives can track gratuity, pension vouchers, and EPFO claims without manual submission audits.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab 3: EPFO / CMPF Pension Tracker with Redirect & Auth Simulator -->
+                        <div class="ccl-hub-panel hidden" id="hub-panel-pension">
+                            <div class="pension-tracker-box">
+                                <p class="pension-info-text">Retired Coal India / CCL Employees CMPF Pension & EPFO Gratuity Tracker. Link your UAN / Member ID account to sync and view your secure passbook ledger balances here post-authentication.</p>
+                                
+                                <!-- Authentication and Routing Controls -->
+                                <div class="pension-form" id="pension-auth-controls" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px;">
+                                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                        <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 8px 12px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            EPFO Member Portal Login ↗
+                                        </a>
+                                        <a href="https://cmpfo.gov.in/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 8px 12px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            CMPF Subscriber Portal ↗
+                                        </a>
+                                    </div>
+                                    <button class="btn-accent" onclick="openEPFOAuthModal()" style="width: 100%; padding: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase;">
+                                        Simulate Secure Sync
+                                    </button>
+                                </div>
+                                
+                                <!-- Pension Results (Simulated after auth) -->
+                                <div class="pension-results-area hidden" id="pension-results-container">
+                                    <div class="pension-details-grid">
+                                        <div class="pension-row">
+                                            <span>Member Name:</span>
+                                            <strong>D.K. Singh</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Sync Account:</span>
+                                            <strong id="pension-sync-type">EPFO (UAN)</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>UAN / Member ID:</span>
+                                            <strong id="pension-sync-uan">100987654321</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>CMPF Account:</span>
+                                            <strong>CIL/SRK/80245</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Total Passbook Balance:</span>
+                                            <strong class="text-green" style="font-size: 15px;" id="pension-total-bal">₹48,50,620.00</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Employee Share:</span>
+                                            <strong id="pension-emp-share">₹24,25,310.00</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Employer Share:</span>
+                                            <strong id="pension-empr-share">₹12,12,655.00</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Pension Share (EPFO):</span>
+                                            <strong id="pension-pen-share">₹12,12,655.00</strong>
+                                        </div>
+                                        <div class="pension-row">
+                                            <span>Sync Status:</span>
+                                            <strong class="text-blue">Sync Successful / Active</strong>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="pension-alert-box" style="margin-top: 10px;">
+                                        <strong>CMPF Verification Status:</strong> Gratuity ledger and provident fund balances successfully synced post-authentication. No mismatch log errors detected.
+                                    </div>
+                                    
+                                    <!-- Dynamic Ledger Table -->
+                                    <div class="pension-ledger-table-wrap" style="margin-top: 14px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                        <span style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Recent Contributions Ledger (CCL)</span>
+                                        <div style="overflow-x: auto;">
+                                            <table style="width: 100%; font-size: 11.5px; border-collapse: collapse; text-align: left;">
+                                                <thead>
+                                                    <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">
+                                                        <th style="padding: 6px 4px;">Month</th>
+                                                        <th style="padding: 6px 4px;">EPF Contrib</th>
+                                                        <th style="padding: 6px 4px;">EPS Contrib</th>
+                                                        <th style="padding: 6px 4px;">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="pension-ledger-body">
+                                                    <!-- Loaded dynamically by JS -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn-disconnect-uan" onclick="disconnectPensionSync()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                                        <span>Disconnect Sync</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="pension-default-prompt" id="pension-prompt-msg">
+                                    Click <strong>Simulate Secure Sync</strong> to authenticate and link your live EPFO / CMPF pension records here.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Visual Career Journey Timeline Card (Full Width in Grid) -->
+                    <div class="glass-card full-width-cheat career-journey-card">
+                        <div class="card-header">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <h2>CCL Career Progression Milestones</h2>
+                        </div>
+                        
+                        <div class="timeline-wrapper">
+                            <div class="timeline-line"></div>
+                            
+                            <div class="timeline-nodes">
+                                <div class="timeline-node">
+                                    <div class="node-marker">1</div>
+                                    <div class="node-content">
+                                        <h3>Mining Sardar</h3>
+                                        <span class="node-era">Early Operations & safety</span>
+                                        <p>Field level safety audits implementation, shift operations coordinate karne, aur registers data maintain karne ki shuruat.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-node">
+                                    <div class="node-marker">2</div>
+                                    <div class="node-content">
+                                        <h3>Senior Mining Sardar</h3>
+                                        <span class="node-era">Operations Supervisor</span>
+                                        <p>Shift safety inspections, coal output operations targets control, and team management responsibilities.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-node">
+                                    <div class="node-marker">3</div>
+                                    <div class="node-content">
+                                        <h3>Overman</h3>
+                                        <span class="node-era">Shift Operations Lead</span>
+                                        <p>Qualified CIL/CCL Overman competency certifications. Lead complex coal mine output sections and crew shifts safety.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-node">
+                                    <div class="node-marker">4</div>
+                                    <div class="node-content">
+                                        <h3>Senior Overman</h3>
+                                        <span class="node-era">Senior Shift Controller</span>
+                                        <p>Comprehensive shift logs verification, regulatory hazard evaluations, and production logs audit reconciliation.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-node">
+                                    <div class="node-marker">5</div>
+                                    <div class="node-content">
+                                        <h3>Manager</h3>
+                                        <span class="node-era">Administration & Oversight</span>
+                                        <p>Manager level competency exams qualified. Operations logs oversight, regulatory compliance, and Area level coordination logs control.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-node node-active">
+                                    <div class="node-marker marker-pulse">6</div>
+                                    <div class="node-content">
+                                        <h3>Dispatch Officer</h3>
+                                        <span class="node-status-badge">Current Role</span>
+                                        <p>Commanding end-to-end coal dispatch metrics at CCL Sirka Argada area. Digitised tracking logs with Excel Macros, establishing transparent Service Level Agreements (SLAs) for swift operations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic Personal Photos Gallery Card (Full Width in Grid) -->
+                    <div class="glass-card full-width-cheat gallery-card">
+                        <div class="card-header flex-header-between">
+                            <div class="header-tab-title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                <h2>Interactive Personal Photos Gallery</h2>
+                            </div>
+                            
+                            <!-- Upload Button Wrapper -->
+                            <div class="upload-wrapper">
+                                <label for="gallery-photo-upload" class="btn-primary btn-upload-sim">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                    Upload Photo Tile
+                                </label>
+                                <input type="file" id="gallery-photo-upload" accept="image/*" onchange="uploadPhoto(event)" class="hidden">
+                            </div>
+                        </div>
+                        
+                        <p class="gallery-info-text">Dhananjay ji ki CCL timeline aur family photos below responsive grid tiles me preview karein. Aap computer se nayi photos upload karke is browser timeline gallery grid me dynamic card links append kar sakte hain.</p>
+                        
+                        <div class="photo-gallery-grid" id="photo-gallery-container">
+                            <!-- Dynamically loaded photo tiles here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- APPLICATION WRITING TAB SECTION -->
+            <section class="tab-panel" id="panel-learning">
+                <div class="glass-card assistant-card">
+                    <div class="assistant-head">
+                        <div class="assistant-branding">
+                            <div class="ai-orb-logo">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ai-orb-svg"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </div>
+                            <div>
+                                <h2>Application Writing & GenAI Assistant</h2>
+                                <p class="sub-text">Hinglish / English queries enter karke CCL Sirka Argada area official letters aur business emails stream karein.</p>
+                            </div>
+                        </div>
+                        <div class="assistant-stats">
+                            <span class="pulse-indicator"></span>
+                            <span class="badge-status">CCL Writer Online</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Search & Query Input Zone -->
+                    <div class="assistant-search-box">
+                        <label for="input-query" class="query-input-label">Aapko kaunsi application likhni hai? Niche topic likhein:</label>
+                        <div class="search-input-wrapper">
+                            <input type="text" id="input-query" placeholder="Type here: e.g. EL k liye leave application, sick leave draft, or dispatch report delay notification" aria-label="Query box for application writer">
+                            <button class="btn-accent" id="btn-submit-query" onclick="submitAIQuery()">
+                                <span>Generate Draft Letter</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow-icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Quick Click Suggestion Pills -->
+                        <div class="search-suggestions">
+                            <span class="suggestion-label">Quick correspondence drafts:</span>
+                            <div class="suggestion-pills">
+                                <button class="pill" onclick="fillSuggestion('EL k liye leave application')">Earned Leave (EL)</button>
+                                <button class="pill" onclick="fillSuggestion('10 Days sick leave application to Chief Manager')">Sick Leave Draft</button>
+                                <button class="pill" onclick="fillSuggestion('Draft a Service Level Agreement notification for coal dispatch sync')">SLA Operations Draft</button>
+                                <button class="pill" onclick="fillSuggestion('Official letter for gate entry weights mismatch report')">Weights Mismatch Alert</button>
+                                <button class="pill" onclick="fillSuggestion('Railway rake loading delay k liye clarification warning to Area Manager')">Rake Delay Warning</button>
+                                <button class="pill" onclick="fillSuggestion('Weighbridge calibration request k liye letter')">Weighbridge Calibration</button>
+                                <button class="pill" onclick="fillSuggestion('Coal grade quality variation mismatch audit report')">Quality Grade Audit</button>
+                                <button class="pill" onclick="fillSuggestion('Railway demurrage charges waiver request k liye letter')">Demurrage Waiver Request</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Output Results Panel (Now 100% full width, no Excel optimizer panel) -->
+                    <div class="assistant-output-grid hidden" id="assistant-results-panel">
+                        
+                        <!-- Full-Width Card: Text & Application Writer -->
+                        <div class="output-card code-theme full-width-card" id="ai-writer-card">
+                            <div class="output-header writer-accent">
+                                <div class="header-tab-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="panel-icon"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                    <h3>Text / Official Application Writer</h3>
+                                </div>
+                                <button class="btn-copy" onclick="copyToClipboard('ai-writer-output-raw', this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="copy-svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span>Copy Draft Letter</span>
+                                </button>
+                            </div>
+                            <div class="output-body text-writer-view" id="ai-writer-output">
+                                <!-- Streamed text goes here -->
+                            </div>
+                            <textarea id="ai-writer-output-raw" class="hidden-textarea" aria-hidden="true" readonly></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Streaming Loader Visual Mock -->
+                    <div class="streaming-loader-container hidden" id="ai-loader">
+                        <div class="processing-glow"></div>
+                        <div class="processing-spinner"></div>
+                        <div class="streaming-text">Gemini Simulator is optimizing your letter draft...</div>
+                    </div>
+                    
+                    <!-- Welcome Console view before search -->
+                    <div class="assistant-welcome-view" id="assistant-welcome-view">
+                        <div class="console-icon">🖋️</div>
+                        <h3>Official Application Writing Room</h3>
+                        <p>Koilary (CCL Sirka Argada Area) management files, leave applications, aur official communications compile karne ke liye upar search bar use karein. Aapka letter draft yahan full-width panel me stream ho jayega.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- EXCEL ASSISTANCE TAB SECTION -->
+            <section class="tab-panel" id="panel-cheatsheet">
+                <div class="cheatsheet-intro">
+                    <h2>Excel Assistance & Data Reconciliation Reference</h2>
+                    <p>Coal India / CCL records cross-verify karne, operational reports analyze karne, aur automation shortcuts ke liye basic reference guide.</p>
+                </div>
+                
+                <!-- Big Search input bar (Same premium look as writing tab) -->
+                <div class="glass-card cheatsheet-search-block">
+                    <label for="cheatsheet-search" class="query-input-label">Search Excel formulas, macro codes, and syntax guides:</label>
+                    <div class="search-input-wrapper">
+                        <input type="text" id="cheatsheet-search" placeholder="Type formula keywords: e.g. upper, concat, lookup, trim..." onkeyup="searchCheatsheet()" aria-label="Search cheatsheet formulas">
+                        <button class="btn-accent" onclick="searchCheatsheet()">
+                            <span>Search Formula</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </div>
+                    <div class="search-helper-text">Smart token engine filters tags instantly. Try searching <code>upper</code>, <code>spaces</code>, <code>merging</code>, or <code>duplicate</code>.</div>
+                </div>
+                
+                <!-- GenAI Formula Solver Panel (Visible when a formula is searched/active) -->
+                <div class="glass-card genai-excel-panel hidden" id="genai-excel-solver-panel">
+                    <div class="genai-panel-header">
+                        <div class="genai-branding">
+                            <div class="genai-orb-logo">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ai-orb-svg"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </div>
+                            <div>
+                                <h3>Gemini Excel AI Assistant</h3>
+                                <p class="sub-text">AI-generated answers, implementation details, and live outputs.</p>
+                            </div>
+                        </div>
+                        <button class="btn-close-genai" onclick="closeGenAISolver()" aria-label="Close AI assistance panel">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="close-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                    
+                    <div class="genai-panel-body" id="genai-excel-solver-body">
+                        <!-- Content dynamically generated in JS -->
+                    </div>
+                </div>
+                
+                <!-- Category Filter Bar -->
+                <div class="category-filter-bar">
+                    <button class="filter-pill active" data-category="all" onclick="filterCategory('all')" title="Show all formulas">All References</button>
+                    <button class="filter-pill" data-category="Formula Reference" onclick="filterCategory('Formula Reference')" title="Show Lookup formulas">Formula Reference</button>
+                    <button class="filter-pill" data-category="Text Operations" onclick="filterCategory('Text Operations')" title="Show text merger operations">Text Operations</button>
+                    <button class="filter-pill" data-category="Text Case Operations" onclick="filterCategory('Text Case Operations')" title="Show case conversions">Text Case Operations</button>
+                    <button class="filter-pill" data-category="Data Operations" onclick="filterCategory('Data Operations')" title="Show space cleaning operations">Data Operations</button>
+                    <button class="filter-pill" data-category="Data Security" onclick="filterCategory('Data Security')" title="Show duplicate checkers">Data Security</button>
+                    <button class="filter-pill" data-category="Automation VBA" onclick="filterCategory('Automation VBA')" title="Show VBA macros">VBA Automation</button>
+                </div>
+                
+                <div class="cheatsheet-grid" id="cheatsheet-cards-container">
+                    <!-- Card 1: Essential VLOOKUP & XLOOKUP -->
+                    <div id="card-xlookup" class="glass-card cheat-card" data-tags="lookup vlookup xlookup index match find search data sheet reconciliation gate records matching finder lookup value">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Formula Reference')" title="Click to filter by Formula Reference category">Formula Reference</span>
+                            <h3>Advanced Lookup Logic (XLOOKUP)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">XLOOKUP (Modern, safe option)</span>
+                                <code>=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> VLOOKUP ki tarah left-side columns me search restrict nahi hota, aur column counting ki jaroorat nahi hoti.</p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for XLOOKUP -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: XLOOKUP Match</span>
+                                    <button class="btn-run-sim" onclick="runXLookupSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=XLOOKUP(A3, E2:E5, F2:F5, "Missing")</span>
+                                </div>
+                                
+                                <div class="simulator-tables-flex">
+                                    <!-- Table A (Lookup Table) -->
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Target Sheet (Weights List)</span>
+                                        <table class="sim-grid-table" id="xlook-table-a">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Truck ID)</th>
+                                                    <th>B (Weight Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td class="cell-calculated">120</td>
+                                                </tr>
+                                                <tr class="target-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-key">CIL-902</td>
+                                                    <td class="cell-output" id="xlook-output-cell">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <!-- Table B (Source Table) -->
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Source Sheet (Master Registry)</span>
+                                        <table class="sim-grid-table" id="xlook-table-b">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>E (Truck ID)</th>
+                                                    <th>F (Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td>120</td>
+                                                </tr>
+                                                <tr id="xlook-src-match-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-match-key">CIL-902</td>
+                                                    <td class="cell-match-value">95</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-num">4</td>
+                                                    <td>CIL-305</td>
+                                                    <td>110</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 1b: VLOOKUP (Legacy Lookup) -->
+                    <div id="card-vlookup" class="glass-card cheat-card" data-tags="lookup vlookup match find search data sheet reconciliation gate records matching finder lookup value">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Formula Reference')" title="Click to filter by Formula Reference category">Formula Reference</span>
+                            <h3>Traditional Columns Lookup (VLOOKUP)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">VLOOKUP Formula</span>
+                                <code>=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Legacy sheets aur reports me lookup value ko match karke associated values nikalne ke liye (jaise Truck ID match karke Tare weight fetch karna).</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=VLOOKUP("CIL-401", E2:F10, 2, FALSE)</code> searches column E for matching row and returns weight from column F.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for VLOOKUP -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: VLOOKUP Match</span>
+                                    <button class="btn-run-sim" onclick="runVLookupSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=VLOOKUP(A3, E2:F4, 2, FALSE)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Target Sheet</span>
+                                        <table class="sim-grid-table" id="vlook-table-a">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Truck ID)</th>
+                                                    <th>B (Weight Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td class="cell-calculated">120</td>
+                                                </tr>
+                                                <tr class="target-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-key">CIL-902</td>
+                                                    <td class="cell-output" id="vlook-output-cell">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Source Sheet (Master Registry)</span>
+                                        <table class="sim-grid-table" id="vlook-table-b">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>E (Truck ID)</th>
+                                                    <th>F (Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td>120</td>
+                                                </tr>
+                                                <tr id="vlook-src-match-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-match-key">CIL-902</td>
+                                                    <td class="cell-match-value">95</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-num">4</td>
+                                                    <td>CIL-305</td>
+                                                    <td>110</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 1c: INDEX & MATCH (Left Lookup Combo) -->
+                    <div id="card-indexmatch" class="glass-card cheat-card" data-tags="lookup index match indexmatch left lookup find search data sheet reconciliation gate records matching finder lookup value">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Formula Reference')" title="Click to filter by Formula Reference category">Formula Reference</span>
+                            <h3>Flexible Left Lookup (INDEX & MATCH)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">INDEX & MATCH Combination</span>
+                                <code>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> VLOOKUP left side ke columns me match nahi kar sakta. INDEX aur MATCH ko combine karne se kisi bhi direction me lookups safely compile ho jate hain.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=INDEX(D2:D10, MATCH("CIL-902", E2:E10, 0))</code> scans column E for ID and returns the Area Name from column D.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for INDEX & MATCH -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: INDEX & MATCH</span>
+                                    <button class="btn-run-sim" onclick="runIndexMatchSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=INDEX(D2:D4, MATCH(A3, E2:E4, 0))</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Target Sheet</span>
+                                        <table class="sim-grid-table" id="indexmatch-table-a">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Truck ID)</th>
+                                                    <th>B (Area)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td class="cell-calculated">Argada</td>
+                                                </tr>
+                                                <tr class="target-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-key">CIL-902</td>
+                                                    <td class="cell-output" id="indexmatch-output-cell">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Source Sheet</span>
+                                        <table class="sim-grid-table" id="indexmatch-table-b">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>D (Area)</th>
+                                                    <th>E (Truck ID)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>Argada</td>
+                                                    <td>CIL-401</td>
+                                                </tr>
+                                                <tr id="indexmatch-src-row">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-match-value">Dhanbad</td>
+                                                    <td class="cell-match-key">CIL-902</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-num">4</td>
+                                                    <td>Rajrappa</td>
+                                                    <td>CIL-305</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 1d: FILTER (Modern Dynamic Array) -->
+                    <div id="card-filter" class="glass-card cheat-card" data-tags="filter lookup formula search dynamic array conditional select extract query records finder sorting">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Formula Reference')" title="Click to filter by Formula Reference category">Formula Reference</span>
+                            <h3>Dynamic Range Filtering (FILTER)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">FILTER Formula</span>
+                                <code>=FILTER(array, include, [if_empty])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Pure dataset me se conditional inputs ke basis par multiple matching records ko dynamic list me extract karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=FILTER(A2:C10, B2:B10="Dhanbad", "No Trucks")</code> Dhanbad location ke saare records extract karta hai.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for FILTER -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: FILTER Range</span>
+                                    <button class="btn-run-sim" onclick="runFilterSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=FILTER(A2:C4, B2:B4="Dhanbad")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Source Sheet Data (A2:C4)</span>
+                                        <table class="sim-grid-table" id="filter-table-source">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Truck)</th>
+                                                    <th>B (Area)</th>
+                                                    <th>C (Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="filter-match-row">
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-902</td>
+                                                    <td class="cell-match-key">Dhanbad</td>
+                                                    <td>95</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-num">3</td>
+                                                    <td>CIL-305</td>
+                                                    <td>Argada</td>
+                                                    <td>110</td>
+                                                </tr>
+                                                <tr class="filter-match-row">
+                                                    <td class="row-num">4</td>
+                                                    <td>CIL-401</td>
+                                                    <td class="cell-match-key">Dhanbad</td>
+                                                    <td>120</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Filtered Output Array</span>
+                                        <table class="sim-grid-table" id="filter-table-output">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>D (Truck)</th>
+                                                    <th>E (Area)</th>
+                                                    <th>F (Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="filter-out-row-1">
+                                                    <td class="row-num">2</td>
+                                                    <td class="cell-output">...</td>
+                                                    <td class="cell-output">...</td>
+                                                    <td class="cell-output">...</td>
+                                                </tr>
+                                                <tr id="filter-out-row-2">
+                                                    <td class="row-num">3</td>
+                                                    <td class="cell-output">...</td>
+                                                    <td class="cell-output">...</td>
+                                                    <td class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 1e: HLOOKUP (Horizontal Column Search) -->
+                    <div id="card-hlookup" class="glass-card cheat-card" data-tags="hlookup horizontal lookup search find row table query header matching rows">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Formula Reference')" title="Click to filter by Formula Reference category">Formula Reference</span>
+                            <h3>Horizontal Lookup (HLOOKUP)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">HLOOKUP Formula</span>
+                                <code>=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Row-based tables ya horizontal headers database me row matching values safely fetch karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=HLOOKUP("Tare Weight", A1:G5, 3, FALSE)</code> headers me 'Tare Weight' find karke row 3 ki value fetch karta hai.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for HLOOKUP -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: HLOOKUP Header Search</span>
+                                    <button class="btn-run-sim" onclick="runHLookupSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=HLOOKUP("Tare Weight", A1:C3, 3, FALSE)</span>
+                                </div>
+                                <div class="simulator-tables-flex" style="flex-direction: column;">
+                                    <div class="sim-table-wrap">
+                                        <span class="table-lbl">Horizontal Database Sheet (A1:C3)</span>
+                                        <table class="sim-grid-table" id="hlook-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th id="hlook-header-1">A (Truck ID)</th>
+                                                    <th id="hlook-header-2">B (Status)</th>
+                                                    <th id="hlook-header-3" class="cell-match-key">C (Tare Weight)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>CIL-401</td>
+                                                    <td>In Transit</td>
+                                                    <td>120 Tons</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="row-num">3</td>
+                                                    <td>CIL-305</td>
+                                                    <td>Loaded</td>
+                                                    <td id="hlook-target-cell" class="cell-match-value">110 Tons</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                                        <span class="table-lbl">Active Cell Formula Result:</span>
+                                        <span id="hlook-output" class="cell-output" style="padding: 4px 12px; border-radius: 4px; background: var(--bg-secondary); border: 1px solid var(--border-color); font-weight:700;">...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Text Merging & Concatenation (CONCAT) -->
+                    <div id="card-concat" class="glass-card cheat-card" data-tags="concat concatenate join merge text strings columns gate log coal dispatch cell compile combine combine cells merge cells text consolidation text link">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Text Operations')" title="Click to filter by Text Operations category">Text Operations</span>
+                            <h3>Merging Fields & Text (CONCAT)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">CONCAT Formula</span>
+                                <code>=CONCAT(text1, text2, ...)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Different cells me likhe text strings, codes, ya IDs ko secure tarike se join karke single consolidated reference key generate karne ke liye.</p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for CONCAT -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: Field Merger</span>
+                                    <button class="btn-run-sim" onclick="runConcatSim(this)">Run Merge</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=CONCAT(A2, "-", B2, " (", C2, ")")</span>
+                                </div>
+                                <table class="sim-grid-table full-width-sim-table" id="concat-sim-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>A (Code)</th>
+                                            <th>B (ID)</th>
+                                            <th>C (Area)</th>
+                                            <th>D (CONCAT Output Key)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="row-num">2</td>
+                                            <td class="cell-concat-val" id="concat-val-a">CIL</td>
+                                            <td class="cell-concat-val" id="concat-val-b">902</td>
+                                            <td class="cell-concat-val" id="concat-val-c">Dhanbad</td>
+                                            <td class="cell-output" id="concat-output-cell">...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2b: TEXTJOIN (Delimited Joins) -->
+                    <div id="card-textjoin" class="glass-card cheat-card" data-tags="concat concatenate textjoin join merge text strings columns compile combine combine cells merge cells text consolidation text link delimiter">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Text Operations')" title="Click to filter by Text Operations category">Text Operations</span>
+                            <h3>Delimited String Joins (TEXTJOIN)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">TEXTJOIN (Delimiter handling)</span>
+                                <code>=TEXTJOIN(delimiter, ignore_empty, text1, text2, ...)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> CONCAT me multiple cells ke beech comma ya dash lagane ke liye manually likhna padta hai. TEXTJOIN auto-separates and skips empty cells.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=TEXTJOIN(", ", TRUE, A2, B2, C2)</code> merges three fields separated by comma, ignoring any blank values.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for TEXTJOIN -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: TEXTJOIN Delimiter</span>
+                                    <button class="btn-run-sim" onclick="runTextjoinSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=TEXTJOIN(", ", TRUE, A2, B2, C2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 2;">
+                                        <table class="sim-grid-table" id="textjoin-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A</th>
+                                                    <th>B (Empty Cell)</th>
+                                                    <th>C</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="textjoin-val-a" class="cell-concat-val">CIL</td>
+                                                    <td id="textjoin-val-b" style="background:#e5e7eb; color:#9ca3af;">(empty)</td>
+                                                    <td id="textjoin-val-c" class="cell-concat-val">Argada</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>D (Output)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="textjoin-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2c: LEFT & RIGHT (Substring Extraction) -->
+                    <div id="card-leftright" class="glass-card cheat-card" data-tags="left right string extract text character cut divide subkey gate log code serial helper substring substring extraction">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Text Operations')" title="Click to filter by Text Operations category">Text Operations</span>
+                            <h3>Substring Extractors (LEFT / RIGHT)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">LEFT and RIGHT Formulas</span>
+                                <code>=LEFT(text, [num_chars]) | =RIGHT(text, [num_chars])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Serial numbers, truck codes, ya location keys me se starting or ending characters filter karke subkeys build karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=LEFT("CIL-SRK-802", 3)</code> extracts `"CIL"` (first 3 letters), and <code>=RIGHT("CIL-SRK-802", 3)</code> returns `"802"` (last 3 digits).
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for LEFT & RIGHT -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: LEFT & RIGHT</span>
+                                    <button class="btn-run-sim" onclick="runLeftRightSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">B2 =LEFT(A2, 3) | C2 =RIGHT(A2, 3)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Code)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="leftright-input-cell">CIL-SRK-802</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (LEFT 3)</th>
+                                                    <th>C (RIGHT 3)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="left-output-cell" class="cell-output">...</td>
+                                                    <td id="right-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2d: MID (Middle Substring Extraction) -->
+                    <div id="card-mid" class="glass-card cheat-card" data-tags="mid string extract text character cut subkey middle substring extraction">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Text Operations')" title="Click to filter by Text Operations category">Text Operations</span>
+                            <h3>Middle Character Extractor (MID)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">MID Formula</span>
+                                <code>=MID(text, start_num, num_chars)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Serial codes, rake IDs, ya complex string tokens ke theek beech me se specific sequence nikalne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=MID("CIL-SRK-802", 5, 3)</code> characters position 5 se start karke 3 letters extract karta hai, yielding `"SRK"`.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for MID -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: MID Substring</span>
+                                    <button class="btn-run-sim" onclick="runMidSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=MID(A2, 5, 3)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Code)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="mid-input-cell">CIL-SRK-802</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (MID Output)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="mid-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2e: LEN (Text Length Meter) -->
+                    <div id="card-len" class="glass-card cheat-card" data-tags="len length size count characters text character length spacing meter">
+                        <div class="cheat-card-header text-blue">
+                            <span class="cheat-badge" onclick="filterCategory('Text Operations')" title="Click to filter by Text Operations category">Text Operations</span>
+                            <h3>String Length Counter (LEN)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">LEN Formula</span>
+                                <code>=LEN(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Kisi specific cell me values ke exact character length counts check karne ke liye (jaise checking if UAN is exactly 12 digits or not).</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=LEN("CIL-SRK")</code> counts characters (including hyphen) and returns <code>7</code>.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for LEN -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: LEN count</span>
+                                    <button class="btn-run-sim" onclick="runLenSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=LEN(A2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Text)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="len-input-cell">CIL-SRK</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (Length Count)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="len-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Case Conversion (UPPER/LOWER/PROPER) -->
+                    <div id="card-upper" class="glass-card cheat-card" data-tags="upper lower proper case capital letter formatting change text conversion uppercase lowercase titlecase format lowercase clean text layout casing case conversion">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Text Case Operations')" title="Click to filter by Text Case Operations category">Text Case Operations</span>
+                            <h3>Case Conversion (UPPER / LOWER / PROPER)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">Case adjustment formulas</span>
+                                <code>=UPPER(text) | =LOWER(text) | =PROPER(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Coal dispatch registers me labels ya codes ko clean up karne ke liye (jaise lowercase text ko clear uppercase formats me tabdeel karna).</p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for Case conversion -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: Case Changer</span>
+                                    <button class="btn-run-sim" onclick="runCaseSim(this)">Run Case Change</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=UPPER(A2)</span>
+                                </div>
+                                <table class="sim-grid-table full-width-sim-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>A (Raw text log)</th>
+                                            <th>B (UPPER Output result)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="row-num">2</td>
+                                            <td id="case-input-cell">ccl dispatch</td>
+                                            <td class="cell-output" id="case-output-cell">...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3b: LOWER (Lowercase conversion) -->
+                    <div id="card-lower" class="glass-card cheat-card" data-tags="upper lower proper case formatting change text conversion lowercase format lowercase clean text casing case conversion">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Text Case Operations')" title="Click to filter by Text Case Operations category">Text Case Operations</span>
+                            <h3>Lowercase Standardisation (LOWER)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">LOWER Formula</span>
+                                <code>=LOWER(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> All capital letters me entries ko small letters me convert karke standardized visual databases format set karne me help karta hai.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=LOWER("CCL DISPATCH")</code> turns the text into <code>"ccl dispatch"</code>.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for LOWER -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: LOWER Case</span>
+                                    <button class="btn-run-sim" onclick="runLowerSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=LOWER(A2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Raw uppercase)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="lower-input-cell">CCL DISPATCH</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (LOWER Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="lower-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3c: PROPER (Titlecase conversion) -->
+                    <div id="card-proper" class="glass-card cheat-card" data-tags="upper lower proper case formatting change text conversion proper format titlecase capitalize uppercase lowercase clean text casing case conversion name format">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Text Case Operations')" title="Click to filter by Text Case Operations category">Text Case Operations</span>
+                            <h3>Capitalise Names & Places (PROPER)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">PROPER Formula</span>
+                                <code>=PROPER(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Employee names, vendor lists, aur areas ko standard title-casing (first letter capital, rest small) me formatting layout clean-up dene ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=PROPER("dhananjay kumar singh")</code> outputs <code>"Dhananjay Kumar Singh"</code>.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for PROPER -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: PROPER Name Casing</span>
+                                    <button class="btn-run-sim" onclick="runProperSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=PROPER(A2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Raw name string)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="proper-input-cell">dhananjay kumar singh</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (PROPER Name)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="proper-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3d: REPLACE (Position-Based Text Replacement) -->
+                    <div id="card-replace" class="glass-card cheat-card" data-tags="replace swap change characters format code substitution replace text">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Text Case Operations')" title="Click to filter by Text Case Operations category">Text Case Operations</span>
+                            <h3>Replace Part of Text (REPLACE)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">REPLACE Formula</span>
+                                <code>=REPLACE(old_text, start_num, num_chars, new_text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Text string me character position ke direct coordinate input par character/word swap ya mask apply karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=REPLACE("CIL-2023", 5, 4, "2026")</code> updates year part, returning `"CIL-2026"`.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for REPLACE -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: REPLACE Position</span>
+                                    <button class="btn-run-sim" onclick="runReplaceSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=REPLACE(A2, 5, 4, "2026")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Old Text)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="replace-input-cell">CIL-2023</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (REPLACE Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="replace-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Data Cleaning & Reconciliation (TRIM) -->
+                    <div id="card-trim" class="glass-card cheat-card" data-tags="trim clean spaces formats verification data weight space clear spaces clear clean cell data cleaning blanks clean spaces text formatting">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Data Operations')" title="Click to filter by Data Operations category">Data Operations</span>
+                            <h3>Data Cleaning & Space Trimming (TRIM)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">Removing Spaces (Extremely useful for Coal Logs)</span>
+                                <code>=TRIM(A2)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Copy-pasted data me extra leading/trailing spaces lag jaati hain, jisse standard VLOOKUP break ho jata hai. TRIM use karne se spaces clear ho jaati hain.</p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for TRIM -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: Space Trimmer</span>
+                                    <button class="btn-run-sim" onclick="runTrimSim(this)">Run Space Clear</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=TRIM(A2)</span>
+                                </div>
+                                <table class="sim-grid-table full-width-sim-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>A (Raw Input dispatch)</th>
+                                            <th>B (TRIM Output result)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="row-num">2</td>
+                                            <td class="cell-dirty" id="trim-dirty-cell">"&nbsp;&nbsp;&nbsp;CIL-105&nbsp;&nbsp;"</td>
+                                            <td class="cell-output" id="trim-output-cell">...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4b: CLEAN (Non-printable clearance) -->
+                    <div id="card-clean" class="glass-card cheat-card" data-tags="clean formats verification data spaces clear clean cell data cleaning blanks text formatting web format error remove tags breaks">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Data Operations')" title="Click to filter by Data Operations category">Data Operations</span>
+                            <h3>Remove Layout Codes & Breaks (CLEAN)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">CLEAN Formula</span>
+                                <code>=CLEAN(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Web systems ya other ERP portals se copy kiya hua data cell margins distort karta hai. CLEAN special non-printable character layout breaks hata deta hai.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=CLEAN(A2)</code> clears invisible text wrappers, tab spaces, and carriage returns from cell contents.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for CLEAN -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: CLEAN non-printable chars</span>
+                                    <button class="btn-run-sim" onclick="runCleanSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=CLEAN(A2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Raw web import)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="clean-input-cell" style="font-family: var(--font-mono);">CIL-401<span style="color:#ef4444; font-weight:bold;">\u200b</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (CLEAN Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="clean-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4c: SUBSTITUTE (Char Replaces) -->
+                    <div id="card-substitute" class="glass-card cheat-card" data-tags="substitute replace string swap text swap modify change fix old text new text text manipulation letter swap helper">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Data Operations')" title="Click to filter by Data Operations category">Data Operations</span>
+                            <h3>Replace Specific Text (SUBSTITUTE)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">SUBSTITUTE Formula</span>
+                                <code>=SUBSTITUTE(text, old_text, new_text, [instance_num])</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Cell string data me specific character (jaise slash `/`, codes, abbreviations) ko auto-replace karke target terms load karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=SUBSTITUTE("CIL/2026", "/", "-")</code> swaps the slash with a dash, returning <code>"CIL-2026"</code>.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for SUBSTITUTE -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: SUBSTITUTE Characters</span>
+                                    <button class="btn-run-sim" onclick="runSubstituteSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=SUBSTITUTE(A2, "/", "-")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Code format)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="substitute-input-cell">CIL/2026</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (SUBSTITUTE Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="substitute-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4d: TEXT (Number Formatting) -->
+                    <div id="card-text" class="glass-card cheat-card" data-tags="text format number date string convert alignment padding digits layout styling">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Data Operations')" title="Click to filter by Data Operations category">Data Operations</span>
+                            <h3>Format Number as Text (TEXT)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">TEXT Formula</span>
+                                <code>=TEXT(value, format_text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Numeric values ya dispatch dates ko standardized layout text (jaise padding serial numbers to 6 digits or date conversion) me reflect karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=TEXT(45, "0000")</code> pads number with leading zeros, returning `"0045"`.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for TEXT -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: TEXT Format</span>
+                                    <button class="btn-run-sim" onclick="runTextSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=TEXT(A2, "0000")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Number)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="text-input-cell">45</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (TEXT Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="text-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4e: VALUE (Text to Number Converter) -->
+                    <div id="card-value" class="glass-card cheat-card" data-tags="value convert text number digits math numerical string converter">
+                        <div class="cheat-card-header text-green">
+                            <span class="cheat-badge" onclick="filterCategory('Data Operations')" title="Click to filter by Data Operations category">Data Operations</span>
+                            <h3>Convert Text to Number (VALUE)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">VALUE Formula</span>
+                                <code>=VALUE(text)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Web portals ya databases se imported text-based digits (jaise `"120"`) ko mathematical calculations ke liye proper real numbers me map karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=VALUE("120")</code> converts text string to standard numeric value <code>120</code>.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for VALUE -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: VALUE string to number</span>
+                                    <button class="btn-run-sim" onclick="runValueSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=VALUE(A2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (String digits)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="value-input-cell" style="font-style: italic; color: var(--text-secondary);">"120"</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (Numeric VALUE)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="value-output-cell" class="cell-output" style="text-align: right;">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5: Duplicate entry checking (COUNTIF) -->
+                    <div id="card-countif" class="glass-card cheat-card" data-tags="countif check duplication repeat entries verification weight logs counts duplicates duplicate checker countif highlights cell matches">
+                        <div class="cheat-card-header text-red">
+                            <span class="cheat-badge" onclick="filterCategory('Data Security')" title="Click to filter by Data Security category">Data Security</span>
+                            <h3>Duplicate Log Checker (COUNTIF)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">Detecting Repeated entries</span>
+                                <code>=COUNTIF($A$2:$A$5, A2) > 1</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Dispatch log database files me same entry register number do baar fill hone par red color alerts highlight karein.</p>
+                            </div>
+                            
+                            <!-- Visual Spreadsheet Simulator for COUNTIF -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: Duplicate Checker</span>
+                                    <button class="btn-run-sim" onclick="runCountifSim(this)">Run Duplicate Check</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=COUNTIF($A$2:$A$5, A2)>1</span>
+                                </div>
+                                <table class="sim-grid-table full-width-sim-table" id="countif-sim-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>A (Truck Log ID)</th>
+                                            <th>B (Repeated? Output)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="countif-row">
+                                            <td class="row-num">2</td>
+                                            <td>CIL-701</td>
+                                            <td class="cell-result">FALSE</td>
+                                        </tr>
+                                        <tr class="countif-row" data-duplicate="true">
+                                            <td class="row-num">3</td>
+                                            <td>CIL-502</td>
+                                            <td class="cell-result cell-output-countif">...</td>
+                                        </tr>
+                                        <tr class="countif-row">
+                                            <td class="row-num">4</td>
+                                            <td>CIL-803</td>
+                                            <td class="cell-result">FALSE</td>
+                                        </tr>
+                                        <tr class="countif-row" data-duplicate="true">
+                                            <td class="row-num">5</td>
+                                            <td>CIL-502</td>
+                                            <td class="cell-result cell-output-countif">...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5b: IFERROR (Error redirection) -->
+                    <div id="card-iferror" class="glass-card cheat-card" data-tags="iferror error fallback security hide error NA value DIV error validation secure check check errors sheets formatting">
+                        <div class="cheat-card-header text-red">
+                            <span class="cheat-badge" onclick="filterCategory('Data Security')" title="Click to filter by Data Security category">Data Security</span>
+                            <h3>Graceful Error Handling (IFERROR)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">IFERROR Fallback Logic</span>
+                                <code>=IFERROR(value, value_if_error)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Jab formula me data missing ho, toh `#N/A` ya `#VALUE!` jise bad-looking error outputs hide karke simple empty blank space or custom warnings replace karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=IFERROR(XLOOKUP(A2, E:E, F:F), "Not Synced")</code> prints <code>"Not Synced"</code> instead of throwing a hash error if lookup fails.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for IFERROR -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: IFERROR handling</span>
+                                    <button class="btn-run-sim" onclick="runIferrorSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=IFERROR(XLOOKUP(A2, E2:E3, F2:F3), "Not Synced")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Lookup key)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="iferror-input-cell">CIL-999 (Missing)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>B (Result display)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="iferror-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5c: AND & OR (Condition Evaluator) -->
+                    <div id="card-andor" class="glass-card cheat-card" data-tags="and or logical conditions validation criteria gate pass limits security checks checking check logical values true false test">
+                        <div class="cheat-card-header text-red">
+                            <span class="cheat-badge" onclick="filterCategory('Data Security')" title="Click to filter by Data Security category">Data Security</span>
+                            <h3>Logical Conditions Audit (AND & OR)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">AND and OR Logical gates</span>
+                                <code>=AND(logical1, logical2, ...) | =OR(logical1, logical2, ...)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Operations validation me truck loads parameters audit run karne ke liye (jaise weight check: aur checks load levels normal bounds me aate hain ya nahi check karna).</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=AND(A2>0, A2<=150)</code> tests if weight is positive and below 150 tons, returning TRUE only when both are satisfied.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for AND & OR -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: AND Logical check</span>
+                                    <button class="btn-run-sim" onclick="runAndOrSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=AND(A2>0, A2<=150)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Weight Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="andor-input-cell">120</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Checks: A2>0 | A2<=150</th>
+                                                    <th>B (AND Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="andor-checks-cell" style="font-size: 10px; color: var(--text-secondary);">Evaluating...</td>
+                                                    <td id="andor-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5d: IF (Logical Switch) -->
+                    <div id="card-if" class="glass-card cheat-card" data-tags="if switch logic logic check validation conditional outcome true false">
+                        <div class="cheat-card-header text-red">
+                            <span class="cheat-badge" onclick="filterCategory('Data Security')" title="Click to filter by Data Security category">Data Security</span>
+                            <h3>Conditional Decision (IF)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">IF Formula</span>
+                                <code>=IF(logical_test, value_if_true, value_if_false)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Verification tests ya numeric parameters ke conditions match hone par custom results (jaise checking if Rake weight exceeded limit to display "OVERLOAD") display karne ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=IF(A2>100, "Overload", "Safe")</code> displays `"Overload"` if weight is greater than 100, otherwise `"Safe"`.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for IF -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: IF Decision branch</span>
+                                    <button class="btn-run-sim" onclick="runIfSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=IF(A2>100, "Overload", "Safe")</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.2;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Weight Tons)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td id="if-input-cell">120</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.8;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Condition Check</th>
+                                                    <th>B (IF Result)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="if-check-cell" style="font-size:10px; color: var(--text-secondary);">Checking...</td>
+                                                    <td id="if-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5e: ISERROR (Error Checker) -->
+                    <div id="card-iserror" class="glass-card cheat-card" data-tags="iserror isna iserr error test check flag validation NA value">
+                        <div class="cheat-card-header text-red">
+                            <span class="cheat-badge" onclick="filterCategory('Data Security')" title="Click to filter by Data Security category">Data Security</span>
+                            <h3>Check for Formula Errors (ISERROR)</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <div class="formula-item">
+                                <span class="formula-title">ISERROR Formula</span>
+                                <code>=ISERROR(value)</code>
+                                <p class="formula-desc"><strong>Kyu use karein?</strong> Kisi spreadsheet calculation me error (jaise #VALUE!, #DIV/0!, #N/A) occur hui hai ya nahi check karke true/false flag lagane ke liye.</p>
+                                <p class="formula-desc" style="font-size: 11px; margin-top: 6px; color: var(--text-secondary);">
+                                    <strong>Example:</strong> <code>=ISERROR(A2/B2)</code> returns TRUE if cell B2 is zero (division by zero error), otherwise FALSE.
+                                </p>
+                            </div>
+                            
+                            <!-- Visual Simulator for ISERROR -->
+                            <div class="visual-simulator-box">
+                                <div class="simulator-header">
+                                    <span>Interactive Visual Simulator: ISERROR validation</span>
+                                    <button class="btn-run-sim" onclick="runIsErrorSim(this)">Run Simulation</button>
+                                </div>
+                                <div class="simulator-formula-bar">
+                                    <span class="fx-label">fx</span>
+                                    <span class="fx-formula">=ISERROR(A2/B2)</span>
+                                </div>
+                                <div class="simulator-tables-flex">
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>A (Val)</th>
+                                                    <th>B (Divisor)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="row-num">2</td>
+                                                    <td>100</td>
+                                                    <td id="iserror-input-divisor" style="color: #ef4444; font-weight: 600;">0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="sim-table-wrap" style="flex: 1.5;">
+                                        <table class="sim-grid-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>C (Calculation A2/B2)</th>
+                                                    <th>D (ISERROR)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td id="iserror-calc-cell" style="color: #ef4444; font-weight:600;">#DIV/0!</td>
+                                                    <td id="iserror-output-cell" class="cell-output">...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6: VBA Automation Macro Example -->
+                    <div class="glass-card cheat-card full-width-cheat" data-tags="vba macro excel automation sub copy sheets consolidador backup data CIL CCL dispatch macro sync sheet backups run macros macros modules module copy">
+                        <div class="cheat-card-header text-gold">
+                            <span class="cheat-badge" onclick="filterCategory('Automation VBA')" title="Click to filter by Automation VBA category">Automation VBA</span>
+                            <h3>Useful Excel VBA Macro: Auto Consolidation</h3>
+                        </div>
+                        <div class="cheat-card-body">
+                            <p>Daily shift reports aur coal weights log sheets ko consolidated file master database sheet me compile karne ke liye macro code:</p>
+                            <div class="code-block-wrapper">
+                                <div class="code-block-header">
+                                    <span>VBA Macro - CopyDataToMaster()</span>
+                                    <button class="btn-copy-sm" onclick="copyToClipboard('vba-macro-cheatsheet-raw', this)">Copy Code</button>
+                                </div>
+                                <pre><code id="vba-macro-cheatsheet-display">Sub CopyDataToMaster()
+    Dim wsSource As Worksheet
+    Dim wsDest As Worksheet
+    Dim nextRow As Long
+    
+    ' Define sheets (Update names as per your workbook)
+    Set wsSource = ThisWorkbook.Sheets("Daily_Shift_Report")
+    Set wsDest = ThisWorkbook.Sheets("Master_Consolidated")
+    
+    ' Find next empty row in master sheet (column A)
+    nextRow = wsDest.Cells(wsDest.Rows.Count, "A").End(xlUp).Row + 1
+    
+    ' Copy data (Assuming headers are same, range A2:E50)
+    wsSource.Range("A2:E50").Copy
+    
+    ' Paste special values only to avoid breaking cell styles
+    wsDest.Range("A" & nextRow).PasteSpecial Paste:=xlPasteValues
+    
+    ' Clear clipboard selection
+    Application.CutCopyMode = False
+    
+    ' Show Hinglish alert for reassurance
+    MsgBox "Data successfully backup ho gaya master sheet me!", vbInformation, "Operations Master Sync"
+End Sub</code></pre>
+                                <textarea id="vba-macro-cheatsheet-raw" class="hidden-textarea" aria-hidden="true" readonly>Sub CopyDataToMaster()
+    Dim wsSource As Worksheet
+    Dim wsDest As Worksheet
+    Dim nextRow As Long
+    
+    ' Define sheets (Update names as per your workbook)
+    Set wsSource = ThisWorkbook.Sheets("Daily_Shift_Report")
+    Set wsDest = ThisWorkbook.Sheets("Master_Consolidated")
+    
+    ' Find next empty row in master sheet (column A)
+    nextRow = wsDest.Cells(wsDest.Rows.Count, "A").End(xlUp).Row + 1
+    
+    ' Copy data (Assuming headers are same, range A2:E50)
+    wsSource.Range("A2:E50").Copy
+    
+    ' Paste special values only to avoid breaking cell styles
+    wsDest.Range("A" & nextRow).PasteSpecial Paste:=xlPasteValues
+    
+    ' Clear clipboard selection
+    Application.CutCopyMode = False
+    
+    ' Show Hinglish alert for reassurance
+    MsgBox "Data successfully backup ho gaya master sheet me!", vbInformation, "Operations Master Sync"
+End Sub</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        
+        <!-- Sticky Bottom Navigation Bar (Mobile View Only) -->
+        <nav class="bottom-nav">
+            <button class="bottom-nav-item active" id="mob-btn-dashboard" onclick="switchTab('dashboard')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Bio</span>
+            </button>
+            <button class="bottom-nav-item" id="mob-btn-learning" onclick="switchTab('learning')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                <span>Writer</span>
+            </button>
+            <button class="bottom-nav-item" id="mob-btn-cheatsheet" onclick="switchTab('cheatsheet')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                <span>Excel</span>
+            </button>
+        </nav>
+        
+    </div>
+    
+    <!-- EPFO Auth Modal Overlay -->
+    <div id="epfo-auth-modal" class="epfo-modal-overlay hidden">
+        <div class="epfo-modal">
+            <div class="epfo-modal-header">
+                <h3 class="epfo-modal-title">EPFO & CMPF Secure Sync</h3>
+                <button class="epfo-modal-close" onclick="closeEPFOAuthModal()">&times;</button>
+            </div>
+            
+            <div class="epfo-modal-body" id="epfo-modal-form-zone">
+                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">
+                    Enter your credentials below to establish a secure simulated connection. You can use any simulated values or enter your actual details to render.
+                </p>
+                
+                <div class="epfo-field-group">
+                    <label class="epfo-field-label">Provident Fund Account Type</label>
+                    <select id="epfo-modal-type" class="epfo-input" style="font-family: inherit;" onchange="updateEPFOModalLabels()">
+                        <option value="EPFO">EPFO (Unified UAN Portal)</option>
+                        <option value="CMPF">CMPF (Coal Mines Provident Fund)</option>
+                    </select>
+                </div>
+                
+                <div class="epfo-field-group">
+                    <label class="epfo-field-label" id="epfo-modal-uan-label">UAN (Universal Account Number)</label>
+                    <input type="text" id="epfo-modal-uan" class="epfo-input" placeholder="e.g. 100987654321">
+                </div>
+                
+                <div class="epfo-field-group">
+                    <label class="epfo-field-label">Password / Member PIN</label>
+                    <input type="password" id="epfo-modal-pass" class="epfo-input" placeholder="••••••••">
+                </div>
+
+                <div class="epfo-field-group">
+                    <label class="epfo-field-label">Simulated Passbook Balance (Optional)</label>
+                    <input type="text" id="epfo-modal-custom-bal" class="epfo-input" placeholder="e.g. 4850620 (defaults to ₹48.5L)">
+                    <span style="font-size: 10px; color: var(--text-secondary);">Leave blank to use pre-calculated default.</span>
+                </div>
+                
+                <div class="epfo-field-group">
+                    <label class="epfo-field-label">Security Captcha</label>
+                    <input type="text" id="epfo-modal-captcha-input" class="epfo-input" placeholder="Type letters shown below">
+                    <div class="captcha-container">
+                        <div class="captcha-box" id="epfo-captcha-display">X7Y8Z</div>
+                        <button class="captcha-refresh" onclick="regenerateEPFOCaptcha()" title="Regenerate Captcha">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px; height:16px;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="btn-epfo-sync" onclick="submitEPFOAuthSync()">Authorize & Retrieve Balance</button>
+            </div>
+            
+            <!-- Progress Stepper (hidden by default) -->
+            <div class="epfo-modal-body hidden" id="epfo-modal-progress-zone">
+                <div class="epfo-progress-box">
+                    <div class="epfo-spinner"></div>
+                    <div class="epfo-progress-text" id="epfo-progress-text-label">Connecting to secure EPFO gateway...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="index.js"></script>
+</body>
+</html>
