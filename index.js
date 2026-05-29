@@ -171,13 +171,7 @@ function renderGallery() {
     
     galleryContainer.innerHTML = '';
     
-    // Fetch uploaded photos from local storage
-    const uploadedPhotos = JSON.parse(localStorage.getItem('uploaded_photos')) || [];
-    
-    // Combine default photos with uploaded ones
-    const allPhotos = [...DEFAULT_PHOTOS, ...uploadedPhotos];
-    
-    allPhotos.forEach(photo => {
+    DEFAULT_PHOTOS.forEach(photo => {
         const card = document.createElement('div');
         card.className = 'gallery-tile';
         
@@ -189,42 +183,6 @@ function renderGallery() {
         `;
         galleryContainer.appendChild(card);
     });
-    
-    // Add the interactive dashed upload card at the end of the grid
-    const uploadCard = document.createElement('div');
-    uploadCard.className = 'gallery-upload-card';
-    uploadCard.innerHTML = `
-        <label for="gallery-photo-upload" class="upload-dropzone">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-            <span>Upload New Photo</span>
-            <p class="small-subtext">Click to choose image</p>
-        </label>
-    `;
-    galleryContainer.appendChild(uploadCard);
-}
-
-function uploadPhoto(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const base64Url = e.target.result;
-        
-        // Save to local storage
-        let uploadedPhotos = JSON.parse(localStorage.getItem('uploaded_photos')) || [];
-        uploadedPhotos.push({
-            url: base64Url,
-            caption: file.name.substring(0, file.name.lastIndexOf('.')) || "Uploaded Photo"
-        });
-        
-        localStorage.setItem('uploaded_photos', JSON.stringify(uploadedPhotos));
-        
-        // Re-render gallery
-        renderGallery();
-        alert("Photo successfully uploaded in local session gallery tile!");
-    };
-    reader.readAsDataURL(file);
 }
 
 // -------------------------------------------------------------
