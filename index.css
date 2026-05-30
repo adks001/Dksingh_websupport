@@ -2548,6 +2548,45 @@ code, pre {
         justify-content: center !important;
         padding: 12px !important;
     }
+
+    /* Mobile GenAI Solver panel layout overrides */
+    .genai-outcome-tables {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    
+    .genai-mini-table-wrap {
+        overflow-x: auto !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent horizontal viewport page expansion on mobile screen views */
+    body, html {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .app-layout {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    .main-content {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .glass-card {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .visual-simulator-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
 }
 
 /* -------------------------------------------------------------
