@@ -2935,7 +2935,11 @@ function disconnectPensionSync() {
 // -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Restore Theme Preference
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    let savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'corporate') {
+        savedTheme = 'dark';
+        localStorage.setItem('theme', 'dark');
+    }
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcons(savedTheme);
     
