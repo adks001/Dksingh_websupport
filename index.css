@@ -2492,10 +2492,12 @@ code, pre {
     
     /* Mobile-first spreadsheet simulator adjustments */
     .visual-simulator-box {
+        width: 100% !important;
         max-width: 100% !important;
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
         padding: 12px 10px !important;
+        box-sizing: border-box !important;
     }
     
     .simulator-tables-flex {
@@ -2506,12 +2508,15 @@ code, pre {
     
     .sim-table-wrap {
         width: 100% !important;
-        overflow: visible !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;
     }
     
     .sim-grid-table {
-        min-width: 310px !important;
+        min-width: 440px !important;
         width: 100% !important;
+        table-layout: auto !important;
     }
     
     .sim-grid-table th, .sim-grid-table td {
