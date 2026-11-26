@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhananjay Kumar Singh | Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</title>
+    <title>Dhananjay Kumar Singh | Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Executive resume portfolio and technical operations portal for Dhananjay Kumar Singh — Senior Coal Mining Operations | Assistant Manager | Dispatch Officer (Coal India Limited - CCL & SECL).">
+    <meta name="description" content="Executive resume portfolio and technical operations portal for Dhananjay Kumar Singh — Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer (Coal India Limited - CCL & SECL).">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=1.1.2">
+    <link rel="stylesheet" href="index.css?v=1.2.0">
 </head>
 <body>
     <!-- App Container -->
@@ -26,7 +26,7 @@
                 </div>
                 <div class="user-meta">
                     <h2 class="user-name">Dhananjay K. Singh</h2>
-                    <p class="user-role">Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</p>
+                    <p class="user-role">Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</p>
                     <p class="user-company">Coal India Limited (CCL / SECL)</p>
                 </div>
             </div>
@@ -47,7 +47,11 @@
                 </button>
                 <button class="nav-item nav-item-resume" onclick="openResumeModal()">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    <span>Export Resume (PDF)</span>
+                    <span>Edit &amp; Export Resume</span>
+                </button>
+                <button class="nav-item nav-item-qr" onclick="openResumeQRModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="3" height="3"></rect><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="21" y2="21"></line></svg>
+                    <span>Resume QR Code</span>
                 </button>
             </nav>
             
@@ -83,10 +87,13 @@
                     <img src="assets/images/resume_portrait.jpg" alt="Dhananjay Kumar Singh Profile Picture" class="mobile-avatar" id="mobile-avatar-img">
                     <div>
                         <h1 class="mobile-title">Dhananjay Kumar Singh</h1>
-                        <span class="mobile-badge">Senior Coal Mining Operations | Asst. Manager | Dispatch Officer</span>
+                        <span class="mobile-badge">Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</span>
                     </div>
                 </div>
                 <div class="mobile-header-actions">
+                    <button class="mobile-resume-btn" onclick="openResumeQRModal()" title="Generate Resume QR Code">
+                        <span>QR</span>
+                    </button>
                     <button class="mobile-resume-btn" onclick="openResumeModal()" title="Preview & Export Resume PDF">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                         <span>PDF</span>
@@ -104,15 +111,21 @@
                 <div class="welcome-banner">
                     <div class="banner-text">
                         <div class="banner-eyebrow">Coal India Limited &bull; CCL &amp; SECL Executive Dossier (1994 &ndash; 2026)</div>
-                        <h3>Dhananjay Kumar Singh &mdash; Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</h3>
-                        <p>Over 32+ years of progressive leadership from statutory Overman through DGMS examinations to Assistant Manager and Dispatch Officer (Retired October 2026), uniting opencast &amp; underground mine governance, railway siding logistics, SAP &amp; Advanced Excel reporting, and All India Mine Rescue captaincy.</p>
+                        <h3>Dhananjay Kumar Singh &mdash; Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</h3>
+                        <p>Over 32+ years of progressive leadership from statutory Overman through DGMS examinations to Senior Deputy Manager and Dispatch Officer (Retired October 2026), uniting opencast &amp; underground mine governance, railway siding logistics, SAP &amp; Advanced Excel reporting, and All India Mine Rescue captaincy.</p>
                     </div>
                     <div class="banner-actions">
-                        <button class="btn-resume-export" onclick="openResumeModal()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
-                            <span>Preview &amp; Export Resume (PDF)</span>
-                        </button>
-                        <div class="banner-badge">Retired Oct 2026 &bull; Mines PO Manager | Advisory Consulting</div>
+                        <div class="banner-btn-row">
+                            <button class="btn-resume-export" onclick="openResumeModal()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                                <span>Edit &amp; Export Resume (PDF)</span>
+                            </button>
+                            <button class="btn-resume-qr-banner" onclick="openResumeQRModal()" title="Generate scannable QR code to download resume">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="3" height="3"></rect><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="21" y2="21"></line></svg>
+                                <span>QR Code</span>
+                            </button>
+                        </div>
+                        <div class="banner-badge">Retired Oct 2026 &bull; Project Manager | Advisory &amp; Consulting</div>
                     </div>
                 </div>
                 
@@ -132,7 +145,7 @@
                                 <img src="assets/images/resume_portrait.jpg" alt="Dhananjay Kumar Singh Executive Portrait" class="resume-strip-photo">
                                 <div class="resume-strip-meta">
                                     <h3>Dhananjay Kumar Singh</h3>
-                                    <p class="resume-strip-title">Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</p>
+                                    <p class="resume-strip-title">Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</p>
                                     <div class="resume-contact-chips">
                                         <a href="tel:+918959219151" class="contact-chip">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -158,13 +171,13 @@
                                 Seasoned Mining &amp; Coal Operations Dispatch Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL.
                             </p>
                             <p class="bio-para">
-                                Commenced his career on the frontline as a statutory <strong>Mining Overman</strong> in February 1994, <strong>Mr. Dhananjay Kumar Singh</strong> advanced through progressive <strong>DGMS examinations</strong> to <strong>Assistant Manager</strong> and <strong>Dispatch Officer</strong>. This ground-up trajectory across both <strong>South Eastern Coalfields Limited (SECL)</strong> and <strong>Central Coalfields Limited (CCL)</strong> provides end-to-end expertise across underground and opencast production planning, Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement.
+                                Commenced his career on the frontline as a statutory <strong>Mining Overman</strong> in February 1994, <strong>Mr. Dhananjay Kumar Singh</strong> advanced through progressive <strong>DGMS examinations</strong> to <strong>Senior Deputy Manager</strong> and <strong>Dispatch Officer</strong>. This ground-up trajectory across both <strong>South Eastern Coalfields Limited (SECL)</strong> and <strong>Central Coalfields Limited (CCL)</strong> provides end-to-end expertise across underground and opencast production planning, Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement.
                             </p>
                             <p class="bio-para">
                                 He spearheaded <strong>digital transformation</strong> across the Sirka / Argada Area by configuring <strong>SAP dispatch workflows</strong> and developing paperless <strong>Advanced Excel reporting systems</strong> that eliminated redundant manual work, saving substantial manpower and minimizing operational &amp; revenue losses. He also drafted formal <strong>Service Level Agreements (SLAs)</strong> to accelerate rake and road dispatch turnaround and eliminate weighbridge discrepancies.
                             </p>
                             <p class="bio-para">
-                                A decorated <strong>All India Mines Rescue</strong> veteran (<strong>25+ years service</strong>), Mr. Singh served as <strong>Captain</strong> for the <strong>SECL and Johilla Area Mine Rescue Team</strong> across competition appearances, securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions. Following his retirement in October 2026, he is open to senior leadership opportunities including <strong>Mines PO Manager</strong> and <strong>Advisory Consulting</strong> roles based on organizational need.
+                                A decorated <strong>All India Mines Rescue</strong> veteran (<strong>25+ years service</strong>), Mr. Singh served as <strong>Captain</strong> for the <strong>SECL and Johilla Area Mine Rescue Team</strong> across competition appearances, securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions. Following his retirement in October 2026, he is open to senior leadership opportunities including <strong>Project Manager</strong> and <strong>Advisory &amp; Consulting</strong> roles based on organizational need.
                             </p>
                             
                             <div class="skills-tag-group">
@@ -174,7 +187,7 @@
                                 <span class="skill-tag">CMR / DGMS Statutory Compliance</span>
                                 <span class="skill-tag">SLA &amp; Weighbridge Governance</span>
                                 <span class="skill-tag">All India Mine Rescue Captain (25+ Yrs)</span>
-                                <span class="skill-tag">Mines PO Manager | Advisory Consulting</span>
+                                <span class="skill-tag">Project Manager | Advisory &amp; Consulting</span>
                             </div>
                             
                             <hr class="card-divider">
@@ -194,18 +207,22 @@
                                 </div>
                                 <div class="fact-item">
                                     <div class="fact-title">Rescue Captain &amp; Target Roles</div>
-                                    <div class="fact-value">25+ Yrs (10+ Top-3 Prizes) &bull; Mines PO Manager | Advisory Consulting</div>
+                                    <div class="fact-value">25+ Yrs (10+ Top-3 Prizes) &bull; Project Manager | Advisory &amp; Consulting</div>
                                 </div>
                             </div>
                             
                             <hr class="card-divider">
                             
                             <div class="contact-section">
-                                <h4 class="contact-title" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--primary-navy); margin-bottom: 12px; letter-spacing: 0.5px;">Executive Contact &amp; Resume Export</h4>
+                                <h4 class="contact-title" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--primary-navy); margin-bottom: 12px; letter-spacing: 0.5px;">Executive Contact, Resume Export &amp; QR Share</h4>
                                 <div class="contact-buttons-flex" style="display: flex; gap: 10px; flex-wrap: wrap;">
                                     <button onclick="openResumeModal()" class="btn-primary contact-btn-resume" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: var(--accent-gold); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25); transition: transform 0.2s;">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 17px; height: 17px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
-                                        <span>Preview &amp; Export Resume PDF</span>
+                                        <span>Edit &amp; Export Resume PDF</span>
+                                    </button>
+                                    <button onclick="openResumeQRModal()" class="btn-primary contact-btn-qr" style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: #0f766e; color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(15, 118, 110, 0.25); transition: transform 0.2s;">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 17px; height: 17px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="3" height="3"></rect><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="21" y2="21"></line></svg>
+                                        <span>Resume QR Code</span>
                                     </button>
                                     <a href="https://wa.me/918959219151" target="_blank" class="btn-primary contact-btn-wa" style="display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: #25d366; color: #ffffff; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); transition: transform 0.2s;">
                                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 17px; height: 17px;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.335 4.978L2 22l5.133-1.343a9.92 9.92 0 004.877 1.28h.005c5.503 0 9.987-4.479 9.988-9.985A9.99 9.99 0 0012.012 2zm4.72 13.565c-.26.732-1.298 1.332-1.782 1.4-1.272.18-2.975-.29-4.542-1.928-1.573-1.637-2.617-3.633-2.617-4.908 0-.986.326-1.53.79-1.993.18-.182.39-.244.52-.244h.358c.11 0 .26.04.37.312.13.31.42 1.03.46 1.112.04.082.02.196-.03.298l-.44.59c-.06.082-.12.164-.04.307.358.625.797 1.144 1.328 1.62.68.613 1.248.918 1.442.99.194.072.266.02.327-.05l.62-.838c.08-.102.174-.082.286-.04.11.04.706.328.828.39.12.06.204.09.235.143.03.053.03.31-.23.957z"/></svg>
@@ -484,7 +501,7 @@
                                     <div class="node-content">
                                         <div class="role-header-row">
                                             <div>
-                                                <h3>Assistant Manager</h3>
+                                                <h3>Senior Deputy Manager</h3>
                                                 <span class="node-era">North Karanpura (NK) Area, Central Coalfields Limited (CCL) &bull; October 2020 &ndash; March 2021</span>
                                             </div>
                                         </div>
@@ -542,7 +559,7 @@
                                 </div>
                                 <div class="competency-group">
                                     <h4>Coal Dispatch, Siding &amp; Commercial Logistics</h4>
-                                    <p>Railway Rake Indenting &amp; Placement, Siding Turnaround Optimization, Demurrage Mitigation, Electronic Weighbridge Calibration &amp; Audits, Coal Grade / GCV Sampling Reconciliation, SLA Drafting.</p>
+                                    <p>Siding Turnaround Optimization, Demurrage Mitigation, Electronic Weighbridge Calibration &amp; Audits, Coal Grade / GCV Sampling Reconciliation, SLA Drafting.</p>
                                 </div>
                                 <div class="competency-group">
                                     <h4>Digital Systems &amp; Reporting</h4>
@@ -550,7 +567,7 @@
                                 </div>
                                 <div class="competency-group">
                                     <h4>Statutory Qualifications &amp; Target Roles</h4>
-                                    <p>DGMS Statutory &amp; Managerial Competency Qualifications (Coal India / DGMS), Certified Mine Rescue Captain &bull; Target Roles: Mines PO Manager | Advisory Consulting.</p>
+                                    <p>DGMS Statutory &amp; Managerial Competency Qualifications (Coal India / DGMS), Certified Mine Rescue Captain &bull; Target Roles: Project Manager | Advisory &amp; Consulting.</p>
                                 </div>
                             </div>
                         </div>
@@ -2376,12 +2393,26 @@ End Sub</textarea>
             <div class="resume-modal-toolbar">
                 <div class="resume-modal-title-wrap">
                     <h3 id="resume-modal-heading">Coal India Executive Resume Preview (English &bull; A4 Standard)</h3>
-                    <span class="resume-modal-sub">Formatted for Coal India / Mining Leadership Roles &mdash; Photo, Contact, Summary, KPIs, Rescue &amp; Extracurriculars</span>
+                    <span class="resume-modal-sub">Click &ldquo;Edit Resume Text&rdquo; to edit any word, sentence, or bullet directly on the page before saving &amp; downloading PDF</span>
                 </div>
                 <div class="resume-modal-actions">
+                    <button class="btn-resume-tool btn-resume-inline-toggle" id="btn-toggle-inline-edit" onclick="toggleResumeInlineEdit()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        <span>Edit Resume Text</span>
+                    </button>
+                    <button class="btn-resume-tool btn-resume-save-inline hidden" id="btn-save-inline-edit" onclick="saveResumeInlineEdits()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Save Edits</span>
+                    </button>
                     <button class="btn-resume-tool" id="btn-toggle-resume-editor" onclick="toggleResumeEditor()">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                        <span>Edit Contact / Statutory Info</span>
+                        <span>Contact / Certs</span>
+                    </button>
+                    <button class="btn-resume-tool" onclick="resetFullResumeEdits()" title="Restore default resume template">
+                        <span>Reset</span>
+                    </button>
+                    <button class="btn-resume-tool btn-resume-qr-tool" onclick="openResumeQRModal()" title="Generate QR Code to download resume">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="3" height="3"></rect><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="21" y2="21"></line></svg>
+                        <span>QR Code</span>
                     </button>
                     <button class="btn-resume-tool btn-resume-download" onclick="downloadResumePDF()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -2389,10 +2420,20 @@ End Sub</textarea>
                     </button>
                     <button class="btn-resume-tool btn-resume-print" onclick="printResumePDF()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                        <span>Print / Save as PDF</span>
+                        <span>Print / Save PDF</span>
                     </button>
                     <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close Resume Preview">&times;</button>
                 </div>
+            </div>
+
+            <!-- Live Edit Mode Indicator Banner -->
+            <div id="resume-inline-edit-banner" class="resume-inline-edit-banner hidden">
+                <span><strong>Live Edit Mode Active:</strong> Click any heading, sentence, bullet point, or KPI directly inside the resume below to modify it. Click <strong>Save Edits</strong> when done, or click <strong>Download PDF</strong> directly.</span>
+            </div>
+
+            <!-- QR Auto-Download Notice Banner -->
+            <div id="qr-download-banner" class="qr-download-banner hidden">
+                <span><strong>QR Resume Download Ready:</strong> Your PDF download has been triggered. Tap <strong>Download PDF</strong> above if your mobile browser prompts for confirmation.</span>
             </div>
 
             <!-- Optional Inline Details Customizer -->
@@ -2425,7 +2466,7 @@ End Sub</textarea>
                 </div>
                 <div class="resume-editor-actions">
                     <button class="btn-resume-tool btn-resume-print" onclick="saveResumeCustomFields()">Apply to Resume Preview</button>
-                    <button class="btn-resume-tool" onclick="resetResumeCustomFields()">Reset Defaults</button>
+                    <button class="btn-resume-tool" onclick="resetResumeCustomFields()">Reset Contact Defaults</button>
                 </div>
             </div>
 
@@ -2433,6 +2474,39 @@ End Sub</textarea>
             <div class="resume-preview-stage">
                 <div id="resume-sheet-document" class="resume-a4-sheet">
                     <!-- Rendered dynamically by renderResumeDocument() -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume QR Code Generator Modal -->
+    <div id="resume-qr-modal" class="epfo-modal-overlay hidden" role="dialog" aria-modal="true" onclick="if(event.target === this) closeResumeQRModal()">
+        <div class="epfo-modal qr-modal-card">
+            <div class="epfo-modal-header">
+                <h3 class="epfo-modal-title">Scan QR Code to Download Resume</h3>
+                <button class="epfo-modal-close" onclick="closeResumeQRModal()">&times;</button>
+            </div>
+            <div class="epfo-modal-body" style="align-items: center; text-align: center;">
+                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.45;">
+                    Scan this QR code with any smartphone camera to immediately open and download <strong>Dhananjay Kumar Singh&rsquo;s Resume PDF</strong>.
+                </p>
+                <div id="resume-qr-code-box" class="qr-code-white-card">
+                    <!-- QR rendered here -->
+                </div>
+                <div class="epfo-field-group" style="width: 100%; text-align: left;">
+                    <label class="epfo-field-label" for="qr-target-url-input">QR Destination URL</label>
+                    <div style="display: flex; gap: 6px;">
+                        <input type="text" id="qr-target-url-input" class="epfo-input" value="https://dksingh-websupport.onrender.com/?resume=download">
+                        <button class="btn-resume-tool" onclick="regenerateCustomQR()" style="white-space: nowrap;">Update QR</button>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap; margin-top: 4px;">
+                    <button class="btn-resume-tool btn-resume-download" onclick="downloadQRCodeImage()" style="flex: 1; justify-content: center;">
+                        <span>Download QR (PNG)</span>
+                    </button>
+                    <button class="btn-resume-tool btn-resume-print" onclick="copyQRShareLink(this)" style="flex: 1; justify-content: center;">
+                        <span>Copy Resume Link</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2513,8 +2587,9 @@ End Sub</textarea>
         </div>
     </div>
 
-    <!-- PDF Export Library & Main Script -->
+    <!-- PDF Export, QR Code Library & Main Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
-    <script src="index.js?v=1.1.2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="index.js?v=1.2.0"></script>
 </body>
 </html>

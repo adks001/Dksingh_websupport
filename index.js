@@ -3024,6 +3024,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Initialize Executive Resume Preview content
     renderResumeDocument();
+
+    // 9. Handle QR Code direct resume download URL (?resume=download)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('resume') === 'download' || window.location.hash === '#resume-download') {
+        openResumeModal();
+        const qrBanner = document.getElementById('qr-download-banner');
+        if (qrBanner) qrBanner.classList.remove('hidden');
+        setTimeout(() => {
+            downloadResumePDF();
+        }, 700);
+    }
 });
 
 // -------------------------------------------------------------
@@ -3040,12 +3051,14 @@ const DEFAULT_RESUME_PROFILE = {
 
 function getResumeProfileFields() {
     try {
-        const saved = JSON.parse(localStorage.getItem('resume_custom_fields_v3'));
+        const saved = JSON.parse(localStorage.getItem('resume_custom_fields_v4'));
         return saved ? { ...DEFAULT_RESUME_PROFILE, ...saved } : { ...DEFAULT_RESUME_PROFILE };
     } catch (e) {
         return { ...DEFAULT_RESUME_PROFILE };
     }
 }
+
+let resumeInlineEditMode = false;
 
 function escapeHtmlSafe(str) {
     return String(str || '')
@@ -3056,25 +3069,20 @@ function escapeHtmlSafe(str) {
         .replace(/'/g, '&#39;');
 }
 
-function renderResumeDocument() {
-    const container = document.getElementById('resume-sheet-document');
-    if (!container) return;
-
-    const p = getResumeProfileFields();
-
-    container.innerHTML = `
+function buildDefaultResumeHTML(p) {
+    return `
         <header class="res-header">
             <div class="res-header-info">
                 <div class="res-name">Dhananjay Kumar Singh</div>
-                <div class="res-designation">Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</div>
+                <div class="res-designation">Senior Coal Mining Operations | Senior Deputy Manager | Dispatch Officer</div>
                 <div class="res-sub-org">Coal India Limited (CCL &amp; SECL) &bull; 32+ Years Service (Feb 1994 &ndash; Oct 2026, Retired)</div>
                 <div class="res-contact-grid">
-                    <div class="res-contact-item"><strong>Phone:</strong> ${escapeHtmlSafe(p.phone)}</div>
-                    <div class="res-contact-item"><strong>WhatsApp:</strong> ${escapeHtmlSafe(p.whatsapp)}</div>
-                    <div class="res-contact-item"><strong>Email:</strong> ${escapeHtmlSafe(p.email)}</div>
-                    <div class="res-contact-item"><strong>Location:</strong> ${escapeHtmlSafe(p.location)}</div>
+                    <div class="res-contact-item"><strong>Phone:</strong> <span data-field="phone">${escapeHtmlSafe(p.phone)}</span></div>
+                    <div class="res-contact-item"><strong>WhatsApp:</strong> <span data-field="whatsapp">${escapeHtmlSafe(p.whatsapp)}</span></div>
+                    <div class="res-contact-item"><strong>Email:</strong> <span data-field="email">${escapeHtmlSafe(p.email)}</span></div>
+                    <div class="res-contact-item"><strong>Location:</strong> <span data-field="location">${escapeHtmlSafe(p.location)}</span></div>
                     <div class="res-contact-item"><strong>Portfolio:</strong> dksingh-websupport.onrender.com</div>
-                    <div class="res-contact-item"><strong>Target Roles:</strong> Mines PO Manager | Advisory Consulting</div>
+                    <div class="res-contact-item"><strong>Target Roles:</strong> Project Manager | Advisory &amp; Consulting</div>
                 </div>
             </div>
             <div class="res-photo-frame">
@@ -3085,7 +3093,7 @@ function renderResumeDocument() {
         <section class="res-section">
             <h4 class="res-section-title">Professional Summary</h4>
             <p class="res-summary-text">
-                Seasoned Mining &amp; Coal Operations Dispatch Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL. Commenced career on the frontline as a statutory Mining Overman and advanced through progressive DGMS examinations to Assistant Manager and Dispatch Officer. Proven track record of consistently meeting and exceeding coal production targets across multiple collieries while maintaining end-to-end expertise in Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement. Spearheaded digital transformation across the Sirka / Argada Area by configuring SAP dispatch workflows and developing paperless Advanced Excel reporting systems that eliminated redundant manual work, saved substantial manpower, and minimized operational and revenue losses. Decorated All India Mines Rescue veteran (<strong>25+ years service</strong>) who served as <strong>Captain</strong> for the SECL and Johilla Area Mine Rescue Team across competition appearances, securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions. Open to senior leadership opportunities including <strong>Mines PO Manager</strong> and <strong>Advisory Consulting</strong> based on organizational need.
+                Seasoned Mining &amp; Coal Operations Dispatch Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL. Commenced career on the frontline as a statutory Mining Overman and advanced through progressive DGMS examinations to Senior Deputy Manager and Dispatch Officer. Proven track record of consistently meeting and exceeding coal production targets across multiple collieries while maintaining end-to-end expertise in Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement. Spearheaded digital transformation across the Sirka / Argada Area by configuring SAP dispatch workflows and developing paperless Advanced Excel reporting systems that eliminated redundant manual work, saved substantial manpower, and minimized operational and revenue losses. Decorated All India Mines Rescue veteran (<strong>25+ years service</strong>) who served as <strong>Captain</strong> for the SECL and Johilla Area Mine Rescue Team across competition appearances, securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions. Open to senior leadership opportunities including <strong>Project Manager</strong> and <strong>Advisory &amp; Consulting</strong> based on organizational need.
             </p>
             <div class="res-kpi-strip">
                 <div class="res-kpi-box">
@@ -3116,7 +3124,7 @@ function renderResumeDocument() {
                 </div>
                 <div class="res-skill-cat">
                     <strong>Coal Dispatch &amp; Siding Logistics</strong>
-                    Railway Rake Indenting &amp; Placement, Siding Turnaround Optimization, Demurrage Mitigation, Weighbridge Calibration, GCV/Grade Sampling &amp; SLA Drafting.
+                    Siding Turnaround Optimization, Demurrage Mitigation, Weighbridge Calibration, GCV/Grade Sampling &amp; SLA Drafting.
                 </div>
                 <div class="res-skill-cat">
                     <strong>Digital Systems &amp; ERP</strong>
@@ -3151,7 +3159,7 @@ function renderResumeDocument() {
 
             <div class="res-exp-block">
                 <div class="res-exp-head">
-                    <span class="res-exp-role">Assistant Manager</span>
+                    <span class="res-exp-role">Senior Deputy Manager</span>
                     <span class="res-exp-dates">October 2020 &ndash; March 2021</span>
                 </div>
                 <div class="res-exp-org">North Karanpura (NK) Area, Central Coalfields Limited (CCL) &mdash; Coal India Limited</div>
@@ -3195,10 +3203,10 @@ function renderResumeDocument() {
         <section class="res-section">
             <h4 class="res-section-title">Statutory Qualifications &amp; Executive Dossier</h4>
             <div class="res-dossier-grid">
-                <div><strong>Statutory Competency:</strong> ${escapeHtmlSafe(p.certs)}</div>
-                <div><strong>Technical Education:</strong> ${escapeHtmlSafe(p.education)}</div>
+                <div><strong>Statutory Competency:</strong> <span data-field="certs">${escapeHtmlSafe(p.certs)}</span></div>
+                <div><strong>Technical Education:</strong> <span data-field="education">${escapeHtmlSafe(p.education)}</span></div>
                 <div><strong>Languages Known:</strong> English, Hindi</div>
-                <div><strong>Target Roles:</strong> Mines PO Manager | Advisory Consulting (based on organizational need)</div>
+                <div><strong>Target Roles:</strong> Project Manager | Advisory &amp; Consulting (based on organizational need)</div>
             </div>
             <div class="res-declaration">
                 <div>I hereby declare that the operational records and details stated above are true and accurate to the best of my knowledge.</div>
@@ -3206,6 +3214,98 @@ function renderResumeDocument() {
             </div>
         </section>
     `;
+}
+
+function renderResumeDocument() {
+    const container = document.getElementById('resume-sheet-document');
+    if (!container) return;
+
+    const customHtml = localStorage.getItem('resume_custom_html_v2');
+    if (customHtml && customHtml.trim() !== '') {
+        container.innerHTML = customHtml;
+    } else {
+        container.innerHTML = buildDefaultResumeHTML(getResumeProfileFields());
+    }
+
+    if (resumeInlineEditMode) {
+        applyInlineEditState(true);
+    }
+}
+
+const EDITABLE_RESUME_SELECTORS = [
+    '.res-name', '.res-designation', '.res-sub-org', '.res-contact-item',
+    '.res-section-title', '.res-summary-text', '.res-kpi-val', '.res-kpi-lbl',
+    '.res-skill-cat', '.res-exp-role', '.res-exp-dates', '.res-exp-org',
+    '.res-bullets li', '.res-role-kpis', '.res-dossier-grid > div', '.res-declaration > div'
+].join(', ');
+
+function applyInlineEditState(enable) {
+    const sheet = document.getElementById('resume-sheet-document');
+    const toggleBtn = document.getElementById('btn-toggle-inline-edit');
+    const saveBtn = document.getElementById('btn-save-inline-edit');
+    const banner = document.getElementById('resume-inline-edit-banner');
+    if (!sheet) return;
+
+    resumeInlineEditMode = enable;
+    if (enable) {
+        sheet.classList.add('resume-editing-active');
+        sheet.querySelectorAll(EDITABLE_RESUME_SELECTORS).forEach(el => {
+            el.setAttribute('contenteditable', 'true');
+        });
+        if (toggleBtn) {
+            toggleBtn.classList.add('active-edit');
+            toggleBtn.querySelector('span').innerText = 'Editing Active';
+        }
+        if (saveBtn) saveBtn.classList.remove('hidden');
+        if (banner) banner.classList.remove('hidden');
+    } else {
+        sheet.classList.remove('resume-editing-active');
+        sheet.querySelectorAll('[contenteditable]').forEach(el => {
+            el.removeAttribute('contenteditable');
+        });
+        if (toggleBtn) {
+            toggleBtn.classList.remove('active-edit');
+            toggleBtn.querySelector('span').innerText = 'Edit Resume Text';
+        }
+        if (saveBtn) saveBtn.classList.add('hidden');
+        if (banner) banner.classList.add('hidden');
+    }
+}
+
+function toggleResumeInlineEdit() {
+    applyInlineEditState(!resumeInlineEditMode);
+}
+
+function getCleanResumeHTMLFromDOM() {
+    const sheet = document.getElementById('resume-sheet-document');
+    if (!sheet) return '';
+    const clone = sheet.cloneNode(true);
+    clone.classList.remove('resume-editing-active');
+    clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+    return clone.innerHTML;
+}
+
+function saveResumeInlineEdits() {
+    const cleanHtml = getCleanResumeHTMLFromDOM();
+    if (!cleanHtml) return;
+    localStorage.setItem('resume_custom_html_v2', cleanHtml);
+    applyInlineEditState(false);
+
+    const toggleBtn = document.getElementById('btn-toggle-inline-edit');
+    if (toggleBtn) {
+        const span = toggleBtn.querySelector('span');
+        if (span) {
+            span.innerText = 'Saved!';
+            setTimeout(() => { span.innerText = 'Edit Resume Text'; }, 1600);
+        }
+    }
+}
+
+function resetFullResumeEdits() {
+    localStorage.removeItem('resume_custom_html_v2');
+    localStorage.removeItem('resume_custom_fields_v4');
+    applyInlineEditState(false);
+    openResumeModal();
 }
 
 function openResumeModal() {
@@ -3231,6 +3331,11 @@ function openResumeModal() {
 }
 
 function closeResumeModal() {
+    if (resumeInlineEditMode) {
+        const cleanHtml = getCleanResumeHTMLFromDOM();
+        if (cleanHtml) localStorage.setItem('resume_custom_html_v2', cleanHtml);
+        applyInlineEditState(false);
+    }
     const modal = document.getElementById('resume-preview-modal');
     if (modal) modal.classList.add('hidden');
 }
@@ -3249,38 +3354,63 @@ function saveResumeCustomFields() {
         certs: (document.getElementById('res-edit-certs')?.value || '').trim() || DEFAULT_RESUME_PROFILE.certs,
         education: (document.getElementById('res-edit-education')?.value || '').trim() || DEFAULT_RESUME_PROFILE.education
     };
-    localStorage.setItem('resume_custom_fields_v3', JSON.stringify(updated));
-    renderResumeDocument();
+    localStorage.setItem('resume_custom_fields_v4', JSON.stringify(updated));
+
+    const sheet = document.getElementById('resume-sheet-document');
+    if (localStorage.getItem('resume_custom_html_v2') && sheet) {
+        Object.keys(updated).forEach(key => {
+            const target = sheet.querySelector(`[data-field="${key}"]`);
+            if (target) target.textContent = updated[key];
+        });
+        localStorage.setItem('resume_custom_html_v2', getCleanResumeHTMLFromDOM());
+    } else {
+        renderResumeDocument();
+    }
+
     const drawer = document.getElementById('resume-editor-drawer');
     if (drawer) drawer.classList.add('hidden');
 }
 
 function resetResumeCustomFields() {
-    localStorage.removeItem('resume_custom_fields_v3');
-    openResumeModal();
+    localStorage.removeItem('resume_custom_fields_v4');
+    if (!localStorage.getItem('resume_custom_html_v2')) {
+        openResumeModal();
+    } else {
+        saveResumeCustomFields();
+    }
 }
 
 function syncPrintPortal() {
-    const source = document.getElementById('resume-sheet-document');
     const portal = document.getElementById('print-portal');
-    if (!source || !portal) return null;
-    portal.innerHTML = `<div class="resume-a4-sheet">${source.innerHTML}</div>`;
+    const cleanHtml = getCleanResumeHTMLFromDOM();
+    if (!cleanHtml || !portal) return null;
+    portal.innerHTML = `<div class="resume-a4-sheet">${cleanHtml}</div>`;
     return portal;
 }
 
 function printResumePDF() {
-    renderResumeDocument();
+    if (resumeInlineEditMode) {
+        saveResumeInlineEdits();
+    } else {
+        renderResumeDocument();
+    }
     syncPrintPortal();
     window.print();
 }
 
 function downloadResumePDF() {
-    renderResumeDocument();
+    if (resumeInlineEditMode) {
+        saveResumeInlineEdits();
+    } else {
+        renderResumeDocument();
+    }
     const source = document.getElementById('resume-sheet-document');
     if (!source) return;
 
     if (typeof window.html2pdf === 'function' && window.location.protocol !== 'file:') {
         const clone = source.cloneNode(true);
+        clone.classList.remove('resume-editing-active');
+        clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
         clone.style.boxShadow = 'none';
         clone.style.margin = '0';
         clone.style.padding = '0';
@@ -3300,5 +3430,92 @@ function downloadResumePDF() {
         printResumePDF();
     }
 }
+
+// -------------------------------------------------------------
+// RESUME QR CODE GENERATOR (SCAN TO OPEN & DOWNLOAD RESUME)
+// -------------------------------------------------------------
+const DEFAULT_RESUME_QR_URL = "https://dksingh-websupport.onrender.com/?resume=download";
+
+function openResumeQRModal() {
+    const modal = document.getElementById('resume-qr-modal');
+    const urlInput = document.getElementById('qr-target-url-input');
+    if (!modal) return;
+
+    if (urlInput && !urlInput.value.trim()) {
+        urlInput.value = DEFAULT_RESUME_QR_URL;
+    }
+    modal.classList.remove('hidden');
+    generateResumeQRCode(urlInput ? urlInput.value.trim() : DEFAULT_RESUME_QR_URL);
+}
+
+function closeResumeQRModal() {
+    const modal = document.getElementById('resume-qr-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function regenerateCustomQR() {
+    const urlInput = document.getElementById('qr-target-url-input');
+    const url = (urlInput ? urlInput.value.trim() : '') || DEFAULT_RESUME_QR_URL;
+    if (urlInput) urlInput.value = url;
+    generateResumeQRCode(url);
+}
+
+function generateResumeQRCode(url) {
+    const box = document.getElementById('resume-qr-code-box');
+    if (!box) return;
+    box.innerHTML = '';
+
+    if (typeof window.QRCode === 'function') {
+        new window.QRCode(box, {
+            text: url,
+            width: 220,
+            height: 220,
+            colorDark: "#0f172a",
+            colorLight: "#ffffff",
+            correctLevel: window.QRCode.CorrectLevel.M
+        });
+    } else {
+        const img = document.createElement('img');
+        img.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(url)}`;
+        img.alt = "Scan to download Resume PDF";
+        img.width = 220;
+        img.height = 220;
+        img.crossOrigin = "anonymous";
+        box.appendChild(img);
+    }
+}
+
+function downloadQRCodeImage() {
+    const box = document.getElementById('resume-qr-code-box');
+    if (!box) return;
+    const canvas = box.querySelector('canvas');
+    const img = box.querySelector('img');
+    const link = document.createElement('a');
+    link.download = 'Dhananjay_Kumar_Singh_Resume_QR.png';
+
+    if (canvas) {
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    } else if (img && img.src) {
+        link.href = img.src;
+        link.target = '_blank';
+        link.click();
+    }
+}
+
+function copyQRShareLink(btn) {
+    const urlInput = document.getElementById('qr-target-url-input');
+    const url = (urlInput ? urlInput.value.trim() : '') || DEFAULT_RESUME_QR_URL;
+    navigator.clipboard.writeText(url).then(() => {
+        if (btn) {
+            const span = btn.querySelector('span');
+            if (span) {
+                span.innerText = 'Link Copied!';
+                setTimeout(() => { span.innerText = 'Copy Resume Link'; }, 1500);
+            }
+        }
+    }).catch(() => {});
+}
+
 
 

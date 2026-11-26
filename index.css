@@ -436,6 +436,36 @@ code, pre {
     z-index: 2;
 }
 
+.banner-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.btn-resume-qr-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #0f766e;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 14px;
+    border-radius: var(--border-radius-md);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-resume-qr-banner:hover {
+    background-color: #0d9488;
+    transform: translateY(-2px);
+}
+
 .btn-resume-export {
     display: inline-flex;
     align-items: center;
@@ -4332,6 +4362,94 @@ a.contact-chip:hover {
 .lightbox-close-btn:hover, .lightbox-nav-btn:hover {
     background: var(--primary-navy);
 }
+
+/* Inline Resume Editor & QR Modal Controls */
+.btn-resume-inline-toggle.active-edit {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
+.btn-resume-save-inline {
+    background-color: #16a34a;
+    border-color: #16a34a;
+    color: #ffffff;
+}
+
+.btn-resume-save-inline:hover {
+    background-color: #15803d;
+}
+
+.btn-resume-qr-tool {
+    background-color: #0f766e;
+    border-color: #0f766e;
+    color: #ffffff;
+}
+
+.btn-resume-qr-tool:hover {
+    background-color: #0d9488;
+}
+
+.resume-inline-edit-banner {
+    background-color: #dbeafe;
+    color: #1e3a8a;
+    border-bottom: 1px solid #93c5fd;
+    padding: 8px 20px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.qr-download-banner {
+    background-color: #dcfce7;
+    color: #14532d;
+    border-bottom: 1px solid #86efac;
+    padding: 8px 20px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.resume-a4-sheet.resume-editing-active [contenteditable="true"] {
+    outline: 1.5px dashed rgba(37, 99, 235, 0.45);
+    outline-offset: 2px;
+    border-radius: 2px;
+    cursor: text;
+    transition: background-color 0.15s, outline-color 0.15s;
+}
+
+.resume-a4-sheet.resume-editing-active [contenteditable="true"]:hover {
+    background-color: rgba(219, 234, 254, 0.4);
+}
+
+.resume-a4-sheet.resume-editing-active [contenteditable="true"]:focus {
+    background-color: #eff6ff;
+    outline: 2px solid #2563eb;
+}
+
+.qr-modal-card {
+    max-width: 410px;
+}
+
+.qr-code-white-card {
+    background-color: #ffffff;
+    padding: 14px;
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 248px;
+    min-height: 248px;
+    margin: 4px 0;
+}
+
+.qr-code-white-card img,
+.qr-code-white-card canvas {
+    display: block;
+    max-width: 220px;
+    max-height: 220px;
+}
+
 
 @media (max-width: 768px) {
     .resume-a4-sheet {
