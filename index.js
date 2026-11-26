@@ -4,11 +4,26 @@
 // 1. DATA DATABASE (Simulated responses for AI Writer)
 // -------------------------------------------------------------
 const DEFAULT_PHOTOS = [
-    { url: "assets/images/office_desk.jpg", caption: "D.K. Singh ji at CCL office desk, Sirka Argada area" },
-    { url: "assets/images/granddaughter_birthday.jpg", caption: "Celebrating birthday with granddaughter" },
-    { url: "assets/images/family_1.jpg", caption: "Having peaceful family times at home with wife" },
-    { url: "assets/images/family_2.jpg", caption: "Family weekend gathering colony residence" },
-    { url: "assets/images/sofa_pose.jpg", caption: "Relaxing at home, planning macros sync systems" }
+    { url: "assets/images/office_desk.jpg", caption: "D.K. Singh at CCL Dispatch Office, Sirka Argada Area" },
+    { url: "assets/images/retirement_desk_ceremony.jpg", caption: "Coal India Retirement Felicitation Desk (31 October 2026)" },
+    { url: "assets/images/retirement_stage_colleagues.jpg", caption: "Retirement Farewell Ceremony with Senior Coal India Colleagues" },
+    { url: "assets/images/argada_team_farewell.jpg", caption: "CCL Argada Area Team Farewell Celebration" },
+    { url: "assets/images/ccl_argada_milestone.jpg", caption: "Central Coalfields Limited (Argada Area) Retirement Honour" },
+    { url: "assets/images/colliery_field_farewell.jpg", caption: "Colliery Field Operations Team Farewell Gathering" },
+    { url: "assets/images/retirement_memento_award.jpg", caption: "Receiving Ceremonial Memento from Coal India Officials" },
+    { url: "assets/images/office_lamp_tribute.jpg", caption: "Ceremonial Lamp Lighting at CCL Office Farewell" },
+    { url: "assets/images/retirement_plaque_desk.jpg", caption: "Coal India Appreciation Plaque & Retirement Desk" },
+    { url: "assets/images/colleagues_wishes_collage.jpg", caption: "Farewell Wishes Collage from Coal India Colleagues" },
+    { url: "assets/images/cil_retirement_salute.jpg", caption: "Coal India Family Retirement Tribute" },
+    { url: "assets/images/retirement_family_celebration.jpg", caption: "Family Retirement Celebration with Spouse & Son" },
+    { url: "assets/images/couple_retirement_tribute_1.jpg", caption: "Retirement Tribute with Spouse (Scroll Edition)" },
+    { url: "assets/images/couple_retirement_tribute_2.jpg", caption: "Retirement Tribute with Spouse (Golden Frame)" },
+    { url: "assets/images/ram_darbar_memento.jpg", caption: "Ceremonial Ram Darbar Retirement Memento" },
+    { url: "assets/images/colliery_field_farewell_portrait.jpg", caption: "On-Site Farewell with Dispatch & Field Staff" },
+    { url: "assets/images/granddaughter_birthday.jpg", caption: "Family celebration with granddaughter" },
+    { url: "assets/images/family_1.jpg", caption: "At home with family" },
+    { url: "assets/images/family_2.jpg", caption: "Weekend family gathering at residence" },
+    { url: "assets/images/sofa_pose.jpg", caption: "At residence reviewing operational automation workflows" }
 ];
 
 const MOCK_LETTERS = {
@@ -165,25 +180,68 @@ function updateThemeIcons(theme) {
 // -------------------------------------------------------------
 // 5. INTERACTIVE PERSONAL PHOTO TIMELINE GALLERY
 // -------------------------------------------------------------
+let activeLightboxIndex = 0;
+
 function renderGallery() {
     const galleryContainer = document.getElementById('photo-gallery-container');
     if (!galleryContainer) return;
     
     galleryContainer.innerHTML = '';
     
-    DEFAULT_PHOTOS.forEach(photo => {
+    DEFAULT_PHOTOS.forEach((photo, idx) => {
         const card = document.createElement('div');
         card.className = 'gallery-tile';
+        card.onclick = () => openPhotoLightbox(idx);
+        card.title = 'Click to view full photo';
         
         card.innerHTML = `
             <div class="gallery-img-container">
-                <img src="${photo.url}" alt="${photo.caption}" class="gallery-img">
+                <img src="${photo.url}" alt="${photo.caption}" class="gallery-img" loading="lazy">
             </div>
             <div class="gallery-caption">${photo.caption}</div>
         `;
         galleryContainer.appendChild(card);
     });
 }
+
+function openPhotoLightbox(index) {
+    const modal = document.getElementById('photo-lightbox-modal');
+    if (!modal || !DEFAULT_PHOTOS[index]) return;
+    activeLightboxIndex = index;
+    updatePhotoLightboxContent();
+    modal.classList.remove('hidden');
+}
+
+function closePhotoLightbox() {
+    const modal = document.getElementById('photo-lightbox-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function navigatePhotoLightbox(delta) {
+    activeLightboxIndex = (activeLightboxIndex + delta + DEFAULT_PHOTOS.length) % DEFAULT_PHOTOS.length;
+    updatePhotoLightboxContent();
+}
+
+function updatePhotoLightboxContent() {
+    const photo = DEFAULT_PHOTOS[activeLightboxIndex];
+    const imgEl = document.getElementById('lightbox-active-img');
+    const capEl = document.getElementById('lightbox-active-caption');
+    if (imgEl && photo) {
+        imgEl.src = photo.url;
+        imgEl.alt = photo.caption;
+    }
+    if (capEl && photo) {
+        capEl.innerText = `${photo.caption} (${activeLightboxIndex + 1} / ${DEFAULT_PHOTOS.length})`;
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('photo-lightbox-modal');
+    if (!modal || modal.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closePhotoLightbox();
+    if (e.key === 'ArrowLeft') navigatePhotoLightbox(-1);
+    if (e.key === 'ArrowRight') navigatePhotoLightbox(1);
+});
 
 // -------------------------------------------------------------
 // 6. GENAI ASSISTANT TYPING SIMULATION & WRITER
@@ -2963,5 +3021,285 @@ document.addEventListener('DOMContentLoaded', () => {
     if (session && session.authenticated) {
         renderPensionDashboard(session);
     }
+
+    // 8. Initialize Executive Resume Preview content
+    renderResumeDocument();
 });
+
+// -------------------------------------------------------------
+// COAL INDIA EXECUTIVE RESUME PREVIEW & PDF EXPORT CONTROLLER
+// -------------------------------------------------------------
+const DEFAULT_RESUME_PROFILE = {
+    phone: "+91 6201745515",
+    whatsapp: "+91 6201745515",
+    email: "9dksingh@gmail.com",
+    location: "Sirka / Argada Area, Ramgarh, Jharkhand, India",
+    certs: "Overman & Departmental Managerial Competency Qualifications (Coal India Ltd. / DGMS); Certified Mine Rescue Captain",
+    education: "Statutory Mining & Departmental Competency Qualifications (Coal India Limited / DGMS)"
+};
+
+function getResumeProfileFields() {
+    try {
+        const saved = JSON.parse(localStorage.getItem('resume_custom_fields'));
+        return saved ? { ...DEFAULT_RESUME_PROFILE, ...saved } : { ...DEFAULT_RESUME_PROFILE };
+    } catch (e) {
+        return { ...DEFAULT_RESUME_PROFILE };
+    }
+}
+
+function escapeHtmlSafe(str) {
+    return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function renderResumeDocument() {
+    const container = document.getElementById('resume-sheet-document');
+    if (!container) return;
+
+    const p = getResumeProfileFields();
+
+    container.innerHTML = `
+        <header class="res-header">
+            <div class="res-header-info">
+                <div class="res-name">Dhananjay Kumar Singh</div>
+                <div class="res-designation">Senior Coal Mining Operations &amp; Dispatch Leader</div>
+                <div class="res-designation-sub">Retired Dispatch Officer &amp; Former Assistant Manager</div>
+                <div class="res-sub-org">Coal India Limited (CCL &amp; SECL) &bull; 32+ Years Service (Feb 1994 &ndash; Oct 2026, Retired)</div>
+                <div class="res-contact-grid">
+                    <div class="res-contact-item"><strong>Phone:</strong> ${escapeHtmlSafe(p.phone)}</div>
+                    <div class="res-contact-item"><strong>WhatsApp:</strong> ${escapeHtmlSafe(p.whatsapp)}</div>
+                    <div class="res-contact-item"><strong>Email:</strong> ${escapeHtmlSafe(p.email)}</div>
+                    <div class="res-contact-item"><strong>Location:</strong> ${escapeHtmlSafe(p.location)}</div>
+                    <div class="res-contact-item"><strong>Portfolio:</strong> dksingh-websupport.onrender.com</div>
+                    <div class="res-contact-item"><strong>Target Roles:</strong> Mine Manager, Sub-Area Manager, Operations Head &amp; Advisory</div>
+                </div>
+            </div>
+            <div class="res-photo-frame">
+                <img src="assets/images/resume_portrait.jpg" alt="Dhananjay Kumar Singh Portrait">
+            </div>
+        </header>
+
+        <section class="res-section">
+            <h4 class="res-section-title">Professional Summary</h4>
+            <p class="res-summary-text">
+                Seasoned Mining &amp; Coal Operations Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, who retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL. Commenced career on the frontline as a statutory Mining Overman and advanced through progressive departmental examinations to Senior Overman, Assistant Manager, and Dispatch Officer. Possesses end-to-end expertise across underground and opencast production planning, Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement. Spearheaded digital transformation across the Sirka / Argada Area by configuring SAP dispatch workflows and developing paperless Advanced Excel reporting systems that eliminated redundant manual work, saving substantial manpower and operational effort. Decorated All India Mines Rescue veteran (30+ years service) who served as <strong>Captain</strong> for the SECL Johilla Area Mine Rescue Team across 15+ competition appearances, securing 10+ Top-3 prizes and leading live emergency extraction missions. Open to senior leadership opportunities including Mine Manager, Sub-Area Manager, Senior Operations Lead, and Executive Advisory based on organizational need.
+            </p>
+            <div class="res-kpi-strip">
+                <div class="res-kpi-box">
+                    <div class="res-kpi-val">32+ Years (1994&ndash;2026)</div>
+                    <div class="res-kpi-lbl">Coal India Tenure (SECL &amp; CCL)</div>
+                </div>
+                <div class="res-kpi-box">
+                    <div class="res-kpi-val">Saved Manpower</div>
+                    <div class="res-kpi-lbl">SAP &amp; Advanced Excel Reporting</div>
+                </div>
+                <div class="res-kpi-box">
+                    <div class="res-kpi-val">15+ Captain / 10+ Prizes</div>
+                    <div class="res-kpi-lbl">All India Mines Rescue (Top-3)</div>
+                </div>
+                <div class="res-kpi-box">
+                    <div class="res-kpi-val">2 Subsidiaries, 3 Areas</div>
+                    <div class="res-kpi-lbl">Johilla, North Karanpura &amp; Argada</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="res-section">
+            <h4 class="res-section-title">Core Competencies &amp; Technical Skill Set</h4>
+            <div class="res-skills-grid">
+                <div class="res-skill-cat">
+                    <strong>Mining &amp; Statutory Governance</strong>
+                    Opencast (HEMM &amp; OB) &amp; Underground Coal Mining, CMR 2017 &amp; DGMS Compliance, Ventilation &amp; Gas Checks, Strata/Roof Support, Pit Safety &amp; Slope Audits.
+                </div>
+                <div class="res-skill-cat">
+                    <strong>Coal Dispatch &amp; Siding Logistics</strong>
+                    Railway Rake Indenting &amp; Placement, Siding Turnaround Optimization, Demurrage Mitigation, Weighbridge Calibration, GCV/Grade Sampling &amp; SLA Drafting.
+                </div>
+                <div class="res-skill-cat">
+                    <strong>Digital Systems &amp; ERP</strong>
+                    SAP Dispatch Configuration (Sirka/Argada Area), Advanced Excel Reporting &amp; Formulas, Automated Variance/Duplicate Audits, Paperless Daily MIS Reports.
+                </div>
+                <div class="res-skill-cat">
+                    <strong>Crisis Rescue &amp; Executive Leadership</strong>
+                    Mine Rescue Captaincy &amp; Live Extractions, Departmental Competency Mentoring, Railway &amp; Power Utility Stakeholder Coordination, Multi-Shift Workforce Leadership.
+                </div>
+            </div>
+        </section>
+
+        <section class="res-section">
+            <h4 class="res-section-title">Professional Experience &amp; Key Performance Indicators (KPIs)</h4>
+
+            <div class="res-exp-block">
+                <div class="res-exp-head">
+                    <span class="res-exp-role">Dispatch Officer</span>
+                    <span class="res-exp-dates">April 2021 &ndash; October 2026 (Retired)</span>
+                </div>
+                <div class="res-exp-org">OCP Argada Area (Sirka), Central Coalfields Limited (CCL) &mdash; Coal India Limited</div>
+                <ul class="res-bullets">
+                    <li>Directed end-to-end road and railway siding coal dispatch operations, coordinating rake indenting, placement, loading, and release within free time to prevent demurrage penalties.</li>
+                    <li>Configured and administered <strong>SAP dispatch tools</strong> across the <strong>Sirka / Argada Area</strong>, integrating gate weighbridge records, rake dispatch memos, and master tonnage ledgers.</li>
+                    <li>Designed and deployed <strong>paperless automated reports</strong> using <strong>Advanced Excel</strong> for daily coal dispatch and billing reconciliation, eliminating redundant multi-person manual workflows and saving significant manpower and effort.</li>
+                    <li>Oversaw electronic weighbridge calibration, tare/gross weight variance reconciliation, coal quality/GCV sampling audits, and drafted operational <strong>Service Level Agreements (SLAs)</strong> for faster vehicle turnaround.</li>
+                </ul>
+                <div class="res-role-kpis">
+                    <strong>Key KPIs:</strong> Significant manpower &amp; time saved via paperless SAP &amp; Advanced Excel reporting &bull; Zero-discrepancy daily weighbridge reconciliation &bull; Reduced siding turnaround &amp; railway demurrage exposure.
+                </div>
+            </div>
+
+            <div class="res-exp-block">
+                <div class="res-exp-head">
+                    <span class="res-exp-role">Assistant Manager</span>
+                    <span class="res-exp-dates">October 2020 &ndash; March 2021</span>
+                </div>
+                <div class="res-exp-org">North Karanpura (NK) Area, Central Coalfields Limited (CCL) &mdash; Coal India Limited</div>
+                <ul class="res-bullets">
+                    <li>Supervised daily opencast coal extraction and overburden (OB) removal operations, coordinating HEMM fleet (shovels, dumpers, dozers, drills) deployment and haul road maintenance.</li>
+                    <li>Enforced Coal Mines Regulations (CMR 2017), DGMS safety circulars, bench slope stability, haul road traffic discipline, dust suppression, and blasting safety clearances across active pits.</li>
+                    <li>Verified statutory pit registers, contractor production measurements, and coordinated daily operational targets with Colliery Management and Area GM Office.</li>
+                </ul>
+                <div class="res-role-kpis">
+                    <strong>Key KPIs:</strong> 100% DGMS &amp; CMR statutory compliance with zero reportable accidents &bull; Sustained daily opencast coal &amp; OB production targets.
+                </div>
+            </div>
+
+            <div class="res-exp-block">
+                <div class="res-exp-head">
+                    <span class="res-exp-role">Overman / Senior Overman</span>
+                    <span class="res-exp-dates">February 1994 &ndash; September 2020</span>
+                </div>
+                <div class="res-exp-org">Umaria &amp; Pipariya Coal Mines, Johilla Area, South Eastern Coalfields Limited (SECL)</div>
+                <ul class="res-bullets">
+                    <li>Executed statutory shift supervision across both <strong>Umaria</strong> and <strong>Pipariya</strong> Coal Mines, advancing from Overman to Senior Overman through departmental statutory competency exams.</li>
+                    <li>Conducted pre-shift and in-shift district safety inspections, noxious/inflammable gas testing, ventilation monitoring, roof bolting/timbering support verification, and Overman daily statutory register compliance.</li>
+                    <li>Supervised Mining Sardars, shot-firers, timbermen, and haulage crews to achieve safe coal production targets, audit production tallies, and mitigate underground operational hazards.</li>
+                    <li>Served as <strong>Captain</strong> of the <strong>SECL Johilla Area Mine Rescue Team</strong> from Day 1 across <strong>15+ All India Mines Rescue Competitions</strong> (30+ years active rescue involvement), winning <strong>10+ prizes (Top-3 national positions)</strong> and leading critical live extraction missions.</li>
+                </ul>
+                <div class="res-role-kpis">
+                    <strong>Key KPIs:</strong> 10+ All India Mines Rescue prizes (Top-3 finishes) as Captain across 15+ competitions &bull; Multiple lives/personnel extracted in critical emergencies &bull; 26+ years compliant dual-mine shift leadership.
+                </div>
+            </div>
+        </section>
+
+        <section class="res-section">
+            <h4 class="res-section-title">Mine Rescue Awards &amp; Extracurricular Leadership</h4>
+            <ul class="res-bullets">
+                <li><strong>All India Mines Rescue Competition (AIMRC) &mdash; Johilla Area Captain:</strong> Served as Captain of the SECL Johilla Area Rescue Team across 15+ national competitions over 30+ years of rescue service, winning <strong>10+ competition awards with Top-3 podium finishes</strong>.</li>
+                <li><strong>Emergency Rescue &amp; Live Extraction Missions:</strong> Participated in and led multiple critical real-world rescue operations to extract personnel from dangerous, life-threatening underground mine conditions.</li>
+                <li><strong>Training, Mentoring &amp; Safety Advocacy:</strong> Mentored junior Overmen and Mining staff for departmental competency exams, organized colliery safety weeks &amp; rescue drills, and trained dispatch staff on SAP and Advanced Excel workflows.</li>
+            </ul>
+        </section>
+
+        <section class="res-section">
+            <h4 class="res-section-title">Statutory Qualifications &amp; Executive Dossier</h4>
+            <div class="res-dossier-grid">
+                <div><strong>Statutory Competency:</strong> ${escapeHtmlSafe(p.certs)}</div>
+                <div><strong>Technical Education:</strong> ${escapeHtmlSafe(p.education)}</div>
+                <div><strong>Languages Known:</strong> English, Hindi</div>
+                <div><strong>Next Career Opportunity:</strong> Open to Mine Manager, Sub-Area Manager, Senior Operations / Dispatch Head, Safety Audit Lead &amp; Executive Advisory roles (Full-Time or Consulting based on organizational need)</div>
+            </div>
+            <div class="res-declaration">
+                <div>I hereby declare that the operational records and details stated above are true and accurate to the best of my knowledge.</div>
+                <div class="res-signature">Dhananjay Kumar Singh<br><span style="font-weight:500;font-size:9.5px;color:#475569;">Retired Dispatch Officer, CCL (CIL)</span></div>
+            </div>
+        </section>
+    `;
+}
+
+function openResumeModal() {
+    const modal = document.getElementById('resume-preview-modal');
+    if (!modal) return;
+
+    const fields = getResumeProfileFields();
+    const map = {
+        'res-edit-phone': fields.phone,
+        'res-edit-whatsapp': fields.whatsapp,
+        'res-edit-email': fields.email,
+        'res-edit-location': fields.location,
+        'res-edit-certs': fields.certs,
+        'res-edit-education': fields.education
+    };
+    Object.keys(map).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = map[id];
+    });
+
+    renderResumeDocument();
+    modal.classList.remove('hidden');
+}
+
+function closeResumeModal() {
+    const modal = document.getElementById('resume-preview-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function toggleResumeEditor() {
+    const drawer = document.getElementById('resume-editor-drawer');
+    if (drawer) drawer.classList.toggle('hidden');
+}
+
+function saveResumeCustomFields() {
+    const updated = {
+        phone: (document.getElementById('res-edit-phone')?.value || '').trim() || DEFAULT_RESUME_PROFILE.phone,
+        whatsapp: (document.getElementById('res-edit-whatsapp')?.value || '').trim() || DEFAULT_RESUME_PROFILE.whatsapp,
+        email: (document.getElementById('res-edit-email')?.value || '').trim() || DEFAULT_RESUME_PROFILE.email,
+        location: (document.getElementById('res-edit-location')?.value || '').trim() || DEFAULT_RESUME_PROFILE.location,
+        certs: (document.getElementById('res-edit-certs')?.value || '').trim() || DEFAULT_RESUME_PROFILE.certs,
+        education: (document.getElementById('res-edit-education')?.value || '').trim() || DEFAULT_RESUME_PROFILE.education
+    };
+    localStorage.setItem('resume_custom_fields', JSON.stringify(updated));
+    renderResumeDocument();
+    const drawer = document.getElementById('resume-editor-drawer');
+    if (drawer) drawer.classList.add('hidden');
+}
+
+function resetResumeCustomFields() {
+    localStorage.removeItem('resume_custom_fields');
+    openResumeModal();
+}
+
+function syncPrintPortal() {
+    const source = document.getElementById('resume-sheet-document');
+    const portal = document.getElementById('print-portal');
+    if (!source || !portal) return null;
+    portal.innerHTML = `<div class="resume-a4-sheet">${source.innerHTML}</div>`;
+    return portal;
+}
+
+function printResumePDF() {
+    renderResumeDocument();
+    syncPrintPortal();
+    window.print();
+}
+
+function downloadResumePDF() {
+    renderResumeDocument();
+    const source = document.getElementById('resume-sheet-document');
+    if (!source) return;
+
+    if (typeof window.html2pdf === 'function' && window.location.protocol !== 'file:') {
+        const clone = source.cloneNode(true);
+        clone.style.boxShadow = 'none';
+        clone.style.margin = '0';
+        clone.style.padding = '0';
+        clone.style.minHeight = 'auto';
+        const opt = {
+            margin: [9, 11, 9, 11],
+            filename: 'Dhananjay_Kumar_Singh_Coal_India_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, logging: false },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: ['css', 'legacy'] }
+        };
+        window.html2pdf().set(opt).from(clone).save().catch(() => {
+            printResumePDF();
+        });
+    } else {
+        printResumePDF();
+    }
+}
+
 

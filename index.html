@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.K. Singh Web Hub - Data Operations & Application Writing Portal</title>
+    <title>Dhananjay Kumar Singh | Senior Coal Mining Operations & Dispatch Leader (CIL - CCL / SECL)</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Professional dashboard and application writing portal for Dhananjay Kumar Singh, Dispatch Officer at Coal India (CCL). Features custom Excel assistance tools and career journey logs.">
+    <meta name="description" content="Executive resume portfolio and technical operations portal for Dhananjay Kumar Singh, former Dispatch Officer (OCP Argada Area, CCL) and Assistant Manager with 32+ years in Coal India Limited (CCL & SECL).">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=1.0.6">
+    <link rel="stylesheet" href="index.css?v=1.1.0">
 </head>
 <body>
     <!-- App Container -->
@@ -21,13 +21,13 @@
         <aside class="sidebar" id="app-sidebar">
             <div class="sidebar-header">
                 <div class="avatar-container">
-                    <img src="assets/images/office_desk.jpg" alt="D.K. Singh Profile Picture" class="avatar-img" id="sidebar-avatar">
+                    <img src="assets/images/resume_portrait.jpg" alt="D.K. Singh Profile Picture" class="avatar-img" id="sidebar-avatar">
                     <div class="avatar-badge">CI</div>
                 </div>
                 <div class="user-meta">
-                    <h2 class="user-name">D.K. Singh</h2>
-                    <p class="user-role">Dispatch Officer</p>
-                    <p class="user-company">Coal India Limited / CCL</p>
+                    <h2 class="user-name">Dhananjay K. Singh</h2>
+                    <p class="user-role">Former Dispatch Officer & Asst. Manager</p>
+                    <p class="user-company">Coal India Limited (CCL / SECL)</p>
                 </div>
             </div>
             
@@ -35,7 +35,7 @@
             <nav class="sidebar-nav">
                 <button class="nav-item active" id="tab-btn-dashboard" onclick="switchTab('dashboard')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    <span>Dashboard & Bio</span>
+                    <span>Executive Profile & Resume</span>
                 </button>
                 <button class="nav-item" id="tab-btn-learning" onclick="switchTab('learning')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
@@ -44,6 +44,10 @@
                 <button class="nav-item" id="tab-btn-cheatsheet" onclick="switchTab('cheatsheet')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
                     <span>Excel Assistance</span>
+                </button>
+                <button class="nav-item nav-item-resume" onclick="openResumeModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Export Resume (PDF)</span>
                 </button>
             </nav>
             
@@ -76,105 +80,152 @@
             <!-- Mobile Header Profile Zone -->
             <header class="mobile-header">
                 <div class="mobile-user-info">
-                    <img src="assets/images/office_desk.jpg" alt="D.K. Singh Profile Picture" class="mobile-avatar" id="mobile-avatar-img">
+                    <img src="assets/images/resume_portrait.jpg" alt="Dhananjay Kumar Singh Profile Picture" class="mobile-avatar" id="mobile-avatar-img">
                     <div>
-                        <h1 class="mobile-title">D.K. Singh Web Hub</h1>
-                        <span class="mobile-badge">CCL Dispatch Officer</span>
+                        <h1 class="mobile-title">Dhananjay Kumar Singh</h1>
+                        <span class="mobile-badge">Senior Coal Operations Leader • CIL (Retd.)</span>
                     </div>
                 </div>
-                <button class="theme-toggle-btn mobile-theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
-                    <svg class="theme-icon sun-mob" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
-                </button>
+                <div class="mobile-header-actions">
+                    <button class="mobile-resume-btn" onclick="openResumeModal()" title="Preview & Export Resume PDF">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        <span>PDF</span>
+                    </button>
+                    <button class="theme-toggle-btn mobile-theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                        <svg class="theme-icon sun-mob" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+                    </button>
+                </div>
             </header>
             
             <!-- DASHBOARD TAB SECTION -->
             <section class="tab-panel active" id="panel-dashboard">
                 
-                <!-- Welcome Alert / Banner (Hinglish Welcoming) -->
+                <!-- Executive Hero Banner (100% English, GM-Level Portfolio Showcase) -->
                 <div class="welcome-banner">
                     <div class="banner-text">
-                        <h3>Welcome to your Web Hub, Dhananjay ji! 👋</h3>
-                        <p>Aapka technical operations portal aur digital timeline ready hai. Dispatch management templates, official drafting tools, aur interactive visual simulators explore karein.</p>
+                        <div class="banner-eyebrow">Coal India Limited &bull; CCL &amp; SECL Executive Dossier (1994 &ndash; 2026)</div>
+                        <h3>Dhananjay Kumar Singh &mdash; Senior Coal Mining Operations &amp; Dispatch Leader</h3>
+                        <p>Over 32+ years of progressive leadership from statutory Overman to Assistant Manager and Dispatch Officer (Retired October 2026), uniting opencast &amp; underground mine governance, railway siding logistics, SAP &amp; Advanced Excel automation, and All India Mine Rescue captaincy.</p>
                     </div>
-                    <div class="banner-badge">CCL Operations</div>
+                    <div class="banner-actions">
+                        <button class="btn-resume-export" onclick="openResumeModal()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                            <span>Preview &amp; Export Resume (PDF)</span>
+                        </button>
+                        <div class="banner-badge">Retired Oct 2026 &bull; Open to Manager / Sub-Area Manager Roles</div>
+                    </div>
                 </div>
                 
                 <div class="dashboard-grid">
-                    <!-- Bio Card (Hinglish/English) -->
+                    <!-- Executive Bio & Resume Summary Card -->
                     <div class="glass-card bio-card">
-                        <div class="card-header">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            <h2>Professional Bio & CCL Journey</h2>
+                        <div class="card-header flex-header-between">
+                            <div class="header-tab-title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <h2>Executive Summary & Professional Profile</h2>
+                            </div>
+                            <span class="exec-tenure-pill">Feb 1994 – Oct 2026</span>
                         </div>
                         
                         <div class="bio-content">
+                            <div class="resume-profile-strip">
+                                <img src="assets/images/resume_portrait.jpg" alt="Dhananjay Kumar Singh Executive Portrait" class="resume-strip-photo">
+                                <div class="resume-strip-meta">
+                                    <h3>Dhananjay Kumar Singh</h3>
+                                    <p class="resume-strip-title">Former Dispatch Officer (OCP Argada Area, CCL) &bull; Ex-Assistant Manager (NK Area, CCL)</p>
+                                    <div class="resume-contact-chips">
+                                        <a href="tel:+916201745515" class="contact-chip">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                            <span>+91 6201745515</span>
+                                        </a>
+                                        <a href="https://wa.me/916201745515" target="_blank" class="contact-chip">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.335 4.978L2 22l5.133-1.343a9.92 9.92 0 004.877 1.28h.005c5.503 0 9.987-4.479 9.988-9.985A9.99 9.99 0 0012.012 2z"/></svg>
+                                            <span>WhatsApp: +91 6201745515</span>
+                                        </a>
+                                        <a href="mailto:9dksingh@gmail.com" class="contact-chip">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                            <span>9dksingh@gmail.com</span>
+                                        </a>
+                                        <span class="contact-chip">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                            <span>Sirka / Argada Area, Ramgarh, Jharkhand</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <p class="highlight-text" id="bio-exact-text">
-                                Seasoned Mining & Coal Operations Leader with <strong>35+ years</strong> of progressive experience in <strong>Coal India Limited (CCL / SECL)</strong>.
+                                Seasoned Mining &amp; Coal Operations Leader with <strong>32+ years</strong> (1994&ndash;2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, who retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL.
                             </p>
                             <p class="bio-para">
-                                <strong>Mr. Dhananjay Kumar Singh</strong> ek experienced Mining aur Coal Operations Leader hain, jinhone Coal India Limited ki subsidiary Central Coalfields Limited (CCL) aur SECL ke sath ek highly accomplished mining career span kiya hai. Unhone ground level par ek <strong>Mining Sardar</strong> ke roop me shuruat ki thi, aur time-to-time departmental examinations qualify karke promote hote hue <strong>Senior Mining Sardar</strong>, <strong>Overman</strong>, <strong>Senior Overman</strong>, <strong>Manager</strong>, aur finally senior <strong>Dispatch Officer</strong> ke key operational roles me contribute kiya hai. Is journey se unhe coal mining value chain ki end-to-end practical knowledge aur operational safety expertise mili hai.
+                                Beginning his career on the frontline as a statutory <strong>Mining Overman</strong> in February 1994, <strong>Mr. Dhananjay Kumar Singh</strong> cleared progressive departmental statutory examinations to advance through <strong>Senior Overman</strong>, <strong>Assistant Manager</strong>, and <strong>Dispatch Officer</strong>. This ground-up trajectory across both <strong>South Eastern Coalfields Limited (SECL)</strong> and <strong>Central Coalfields Limited (CCL)</strong> gives him end-to-end command over the coal value chain&mdash;spanning underground and opencast production planning, Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce leadership, railway siding dispatch, and commercial quality reconciliation.
                             </p>
                             <p class="bio-para">
-                                Unka experience mine production planning, safety regulations, workforce supervision, dispatch optimization, railway rake coordination, rake management, aur stakeholder engagement me hai. Unhone manual systems ko digitize karne ke liye advanced Excel macros and VBA logics develop kiye aur smooth, delay-free operations ke liye specialized Service Level Agreements (SLAs) draft kiye, jisse Coal India dispatch turnaround aur work culture improvement me help mili hai.
+                                Beyond statutory mine leadership, he spearheaded <strong>digital transformation and workflow automation</strong> across the Sirka / Argada Area&mdash;configuring <strong>SAP dispatch tools</strong>, engineering <strong>Advanced Excel reporting systems</strong>, and establishing <strong>paperless operations</strong> that eliminated redundant manual registers, saving substantial manpower, time, and operational effort. He also drafted formal <strong>Service Level Agreements (SLAs)</strong> to accelerate rake and road dispatch turnaround and eliminate weighbridge discrepancies.
                             </p>
                             <p class="bio-para">
-                                Post-retirement, Dhananjay ji advisory, consulting, mentoring, safety audits, and training assignments ke liye available hain. Vo safety practices aur dispatch operations optimize karne me infrastructure, logistics agencies, and power sector enterprises ko guide karne ke liye eager hain.
+                                A decorated <strong>All India Mines Rescue</strong> veteran for over <strong>30+ years</strong>, Mr. Singh served as <strong>Captain</strong> for the <strong>SECL Johilla Area Mine Rescue Team</strong> across <strong>15+ national competitions</strong>, winning <strong>10+ awards with Top-3 podium finishes</strong> and leading multiple high-risk live extraction missions to rescue personnel from critical underground emergencies. Following his retirement in October 2026, he is actively seeking his next major leadership opportunity&mdash;including <strong>Mine Manager, Sub-Area Manager, Senior Operations / Dispatch Head, Safety Audit Lead, or Executive Advisor</strong>&mdash;tailored to organizational requirements across mining, infrastructure, logistics, and power sector enterprises.
                             </p>
                             
                             <div class="skills-tag-group">
-                                <span class="skill-tag">Mining & Coal Expert</span>
-                                <span class="skill-tag">35+ Years CIL/CCL</span>
-                                <span class="skill-tag">SLA & Regulatory Compliance</span>
-                                <span class="skill-tag">Advanced Macros & VBA</span>
-                                <span class="skill-tag">Industry Mentor</span>
-                                <span class="skill-tag">Hinglish Prompting</span>
+                                <span class="skill-tag">Coal Mining &amp; Opencast Operations</span>
+                                <span class="skill-tag">Coal Dispatch &amp; Railway Siding</span>
+                                <span class="skill-tag">SAP Configuration &amp; Advanced Excel</span>
+                                <span class="skill-tag">CMR / DGMS Statutory Compliance</span>
+                                <span class="skill-tag">SLA &amp; Weighbridge Governance</span>
+                                <span class="skill-tag">All India Mine Rescue Captain</span>
+                                <span class="skill-tag">Mine Manager / Sub-Area Manager / Advisory</span>
                             </div>
                             
                             <hr class="card-divider">
                             
                             <div class="facts-grid">
                                 <div class="fact-item">
-                                    <div class="fact-title">Experience</div>
-                                    <div class="fact-value">35+ Years</div>
+                                    <div class="fact-title">Total CIL Tenure</div>
+                                    <div class="fact-value">32+ Years (Feb 1994 &ndash; Oct 2026, Retd.)</div>
                                 </div>
                                 <div class="fact-item">
-                                    <div class="fact-title">Organization</div>
-                                    <div class="fact-value">Coal India / CCL</div>
+                                    <div class="fact-title">Subsidiaries &amp; Areas</div>
+                                    <div class="fact-value">CCL (Argada, NK) &amp; SECL (Johilla)</div>
                                 </div>
                                 <div class="fact-item">
-                                    <div class="fact-title">Excel Focus</div>
-                                    <div class="fact-value">Macros & Automation</div>
+                                    <div class="fact-title">Digital Impact</div>
+                                    <div class="fact-value">SAP &amp; Advanced Excel MIS (Saved Manpower &amp; Time)</div>
                                 </div>
                                 <div class="fact-item">
-                                    <div class="fact-title">Availability</div>
-                                    <div class="fact-value">Advisory & Mentoring</div>
+                                    <div class="fact-title">Mine Rescue &amp; Target Roles</div>
+                                    <div class="fact-value">15+ AIMRC Captain (10+ Prizes) &bull; Manager / Sub-Area Manager / Advisory</div>
                                 </div>
                             </div>
                             
                             <hr class="card-divider">
                             
                             <div class="contact-section">
-                                <h4 class="contact-title" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--primary-navy); margin-bottom: 12px; letter-spacing: 0.5px;">Contact & Inquiries</h4>
-                                <div class="contact-buttons-flex" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <h4 class="contact-title" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--primary-navy); margin-bottom: 12px; letter-spacing: 0.5px;">Executive Contact &amp; Resume Export</h4>
+                                <div class="contact-buttons-flex" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <button onclick="openResumeModal()" class="btn-primary contact-btn-resume" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: var(--accent-gold); color: #ffffff; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25); transition: transform 0.2s;">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 17px; height: 17px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                                        <span>Preview &amp; Export Resume PDF</span>
+                                    </button>
                                     <a href="https://wa.me/916201745515" target="_blank" class="btn-primary contact-btn-wa" style="display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: #25d366; color: #ffffff; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); transition: transform 0.2s;">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.335 4.978L2 22l5.133-1.343a9.92 9.92 0 004.877 1.28h.005c5.503 0 9.987-4.479 9.988-9.985A9.99 9.99 0 0012.012 2zm4.72 13.565c-.26.732-1.298 1.332-1.782 1.4-1.272.18-2.975-.29-4.542-1.928-1.573-1.637-2.617-3.633-2.617-4.908 0-.986.326-1.53.79-1.993.18-.182.39-.244.52-.244h.358c.11 0 .26.04.37.312.13.31.42 1.03.46 1.112.04.082.02.196-.03.298l-.44.59c-.06.082-.12.164-.04.307.358.625.797 1.144 1.328 1.62.68.613 1.248.918 1.442.99.194.072.266.02.327-.05l.62-.838c.08-.102.174-.082.286-.04.11.04.706.328.828.39.12.06.204.09.235.143.03.053.03.31-.23.957z"/></svg>
-                                        <span>WhatsApp Chat</span>
+                                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 17px; height: 17px;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.335 4.978L2 22l5.133-1.343a9.92 9.92 0 004.877 1.28h.005c5.503 0 9.987-4.479 9.988-9.985A9.99 9.99 0 0012.012 2zm4.72 13.565c-.26.732-1.298 1.332-1.782 1.4-1.272.18-2.975-.29-4.542-1.928-1.573-1.637-2.617-3.633-2.617-4.908 0-.986.326-1.53.79-1.993.18-.182.39-.244.52-.244h.358c.11 0 .26.04.37.312.13.31.42 1.03.46 1.112.04.082.02.196-.03.298l-.44.59c-.06.082-.12.164-.04.307.358.625.797 1.144 1.328 1.62.68.613 1.248.918 1.442.99.194.072.266.02.327-.05l.62-.838c.08-.102.174-.082.286-.04.11.04.706.328.828.39.12.06.204.09.235.143.03.053.03.31-.23.957z"/></svg>
+                                        <span>WhatsApp (+91 6201745515)</span>
                                     </a>
                                     <a href="mailto:9dksingh@gmail.com" class="btn-primary contact-btn-mail" style="display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 18px; border-radius: var(--border-radius-md); font-size: 13px; font-weight: 600; background-color: var(--primary-navy); color: #ffffff; box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2); transition: transform 0.2s;">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                        <span>Email Inquiries</span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 17px; height: 17px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        <span>Email (9dksingh@gmail.com)</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Coal India & CCL Operations Information Board -->
-                    <div class="glass-card ccl-info-card">
+                    <!-- Coal India & CCL Operations Information Board (Compact Tile on Desktop, Last on Mobile) -->
+                    <div class="glass-card ccl-info-card compact-hub-card">
                         <div class="card-header flex-header-between">
                             <div class="header-tab-title">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="9" y1="22" x2="9" y2="10"></line><line x1="17" y1="4" x2="17" y2="10"></line></svg>
-                                <h2>CIL / CCL Operations & Pension Hub</h2>
+                                <h2>CIL / CCL Operations &amp; Pension Hub</h2>
                             </div>
                             <span class="live-pulse-badge">
                                 <span class="pulse-indicator"></span>
@@ -196,7 +247,7 @@
                                     <div class="stock-ticker-box">
                                         <div class="stock-meta">
                                             <span class="stock-symbol">COALINDIA (NSE)</span>
-                                            <span class="stock-sector">Energy & Mining - PSU</span>
+                                            <span class="stock-sector">Energy &amp; Mining - PSU</span>
                                         </div>
                                         <div class="stock-price-display">
                                             <span class="stock-currency">₹</span>
@@ -227,14 +278,14 @@
                                 </a>
                                 
                                 <!-- Redesigned Watchlist Section -->
-                                <div class="watchlist-section" style="margin-top: 16px; border-top: 1px dashed var(--border-color); padding-top: 14px;">
-                                    <span style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Stock Search & Watchlist</span>
+                                <div class="watchlist-section" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                    <span style="font-size: 10.5px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px;">Stock Search &amp; Watchlist</span>
                                     
                                     <!-- Larger Optimized Search Bar -->
                                     <div class="stock-search-container">
                                         <div class="search-input-group">
-                                            <input type="text" id="add-stock-input" placeholder="Search Stock Symbol (e.g. RELIANCE, TATASTEEL, SBI)" onkeydown="if(event.key === 'Enter') handleSearchStock()">
-                                            <button onclick="handleSearchStock()" class="btn-search-stock">Search Stock</button>
+                                            <input type="text" id="add-stock-input" placeholder="Search Symbol (e.g. RELIANCE, TATASTEEL)" onkeydown="if(event.key === 'Enter') handleSearchStock()">
+                                            <button onclick="handleSearchStock()" class="btn-search-stock">Search</button>
                                         </div>
                                         
                                         <!-- Search Validation Result Panel -->
@@ -290,21 +341,21 @@
                         <!-- Tab 3: EPFO / CMPF Pension Tracker with Redirect & Auth Simulator -->
                         <div class="ccl-hub-panel hidden" id="hub-panel-pension">
                             <div class="pension-tracker-box">
-                                <p class="pension-info-text">Retired Coal India / CCL Employees CMPF Pension & EPFO Gratuity Tracker. Link your UAN / Member ID account to sync and view your secure passbook ledger balances here post-authentication.</p>
+                                <p class="pension-info-text">Retired Coal India / CCL Employees CMPF Pension &amp; EPFO Gratuity Tracker. Link your UAN / Member ID account to sync and view your secure passbook ledger balances post-authentication.</p>
                                 
                                 <!-- Authentication and Routing Controls -->
-                                <div class="pension-form" id="pension-auth-controls" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px;">
+                                <div class="pension-form" id="pension-auth-controls" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px;">
                                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                        <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 8px 12px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            EPFO Member Portal Login ↗
+                                        <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 7px 10px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 13px; height: 13px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            EPFO Portal ↗
                                         </a>
-                                        <a href="https://cmpfo.gov.in/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 8px 12px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            CMPF Subscriber Portal ↗
+                                        <a href="https://cmpfo.gov.in/" target="_blank" class="epfo-external-link" style="flex-grow: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--primary-navy); border: 1px solid var(--border-color); padding: 7px 10px; border-radius: var(--border-radius-sm); text-decoration: none; font-weight: 600; background-color: var(--bg-secondary); transition: all 0.2s;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 13px; height: 13px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            CMPF Portal ↗
                                         </a>
                                     </div>
-                                    <button class="btn-accent" onclick="openEPFOAuthModal()" style="width: 100%; padding: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase;">
+                                    <button class="btn-accent" onclick="openEPFOAuthModal()" style="width: 100%; padding: 9px; font-size: 12px; font-weight: 700; text-transform: uppercase;">
                                         Simulate Secure Sync
                                     </button>
                                 </div>
@@ -330,7 +381,7 @@
                                         </div>
                                         <div class="pension-row">
                                             <span>Total Passbook Balance:</span>
-                                            <strong class="text-green" style="font-size: 15px;" id="pension-total-bal">₹48,50,620.00</strong>
+                                            <strong class="text-green" style="font-size: 14px;" id="pension-total-bal">₹48,50,620.00</strong>
                                         </div>
                                         <div class="pension-row">
                                             <span>Employee Share:</span>
@@ -381,76 +432,150 @@
                                 </div>
                                 
                                 <div class="pension-default-prompt" id="pension-prompt-msg">
-                                    Click <strong>Simulate Secure Sync</strong> to authenticate and link your live EPFO / CMPF pension records here.
+                                    Click <strong>Simulate Secure Sync</strong> to authenticate and link your EPFO / CMPF pension records here.
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     
-                    <!-- Visual Career Journey Timeline Card (Full Width in Grid) -->
+                    <!-- Executive Career Experience & KPI Timeline Card (Reverse Chronological - Latest First) -->
                     <div class="glass-card full-width-cheat career-journey-card">
-                        <div class="card-header">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                            <h2>CCL Career Progression Milestones</h2>
+                        <div class="card-header flex-header-between">
+                            <div class="header-tab-title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <h2>Executive Career Timeline &amp; Key Performance Indicators (KPIs)</h2>
+                            </div>
+                            <span class="timeline-order-tag">Latest Role First &bull; 1994&ndash;2026</span>
                         </div>
                         
                         <div class="timeline-wrapper">
                             <div class="timeline-line"></div>
                             
                             <div class="timeline-nodes">
-                                <div class="timeline-node">
-                                    <div class="node-marker">1</div>
+                                <!-- Role 1: Latest -->
+                                <div class="timeline-node node-active">
+                                    <div class="node-marker marker-pulse">1</div>
                                     <div class="node-content">
-                                        <h3>Mining Sardar</h3>
-                                        <span class="node-era">Early Operations & safety</span>
-                                        <p>Field level safety audits implementation, shift operations coordinate karne, aur registers data maintain karne ki shuruat.</p>
+                                        <div class="role-header-row">
+                                            <div>
+                                                <h3>Dispatch Officer <span class="node-status-badge">Final Role &bull; Retired Oct 2026</span></h3>
+                                                <span class="node-era">OCP Argada Area, Central Coalfields Limited (CCL) &bull; April 2021 &ndash; October 2026</span>
+                                            </div>
+                                        </div>
+                                        <ul class="role-bullets">
+                                            <li><strong>Coal Dispatch &amp; Railway Siding Operations:</strong> Directed end-to-end road and rail coal evacuation at OCP Argada / Sirka Area, coordinating railway rake indenting, placement, loading, and timely release to power utilities and industrial linkage consumers.</li>
+                                            <li><strong>SAP Configuration &amp; Sirka Area Automation:</strong> Configured and managed SAP dispatch workflows across the Sirka Area, synchronizing weighbridge gate logs, rake dispatch memos, and master tonnage ledgers.</li>
+                                            <li><strong>Paperless Automated MIS (Saved Manpower &amp; Effort):</strong> Engineered Advanced Excel reporting workflows and paperless daily dispatch reports that streamlined heavy multi-person manual reporting, significantly saving manpower and administrative turnaround time.</li>
+                                            <li><strong>Weighbridge, Quality &amp; Demurrage Control:</strong> Supervised periodic electronic weighbridge calibration, tare/gross weight variance reconciliation, coal grade (GCV/ash) sampling audits, and demurrage waiver documentation with Railways.</li>
+                                            <li><strong>SLA Governance:</strong> Drafted and enforced Service Level Agreements (SLAs) across dispatch clerks, weighbridge teams, and loading contractors to eliminate turnaround bottlenecks.</li>
+                                        </ul>
+                                        <div class="kpi-badges-row">
+                                            <div class="kpi-badge"><strong>KPI &bull; Manpower Savings:</strong> Significant manpower &amp; time saved across Sirka Area via paperless SAP &amp; Advanced Excel reporting</div>
+                                            <div class="kpi-badge"><strong>KPI &bull; Reconciliation Accuracy:</strong> Zero-discrepancy daily weighbridge &amp; gate-pass log tallying across Sirka Area</div>
+                                            <div class="kpi-badge"><strong>KPI &bull; Siding Turnaround:</strong> Faster rake loading cycles &amp; minimized railway demurrage penalties</div>
+                                        </div>
                                     </div>
                                 </div>
                                 
+                                <!-- Role 2 -->
                                 <div class="timeline-node">
                                     <div class="node-marker">2</div>
                                     <div class="node-content">
-                                        <h3>Senior Mining Sardar</h3>
-                                        <span class="node-era">Operations Supervisor</span>
-                                        <p>Shift safety inspections, coal output operations targets control, and team management responsibilities.</p>
+                                        <div class="role-header-row">
+                                            <div>
+                                                <h3>Assistant Manager</h3>
+                                                <span class="node-era">North Karanpura (NK) Area, Central Coalfields Limited (CCL) &bull; October 2020 &ndash; March 2021</span>
+                                            </div>
+                                        </div>
+                                        <ul class="role-bullets">
+                                            <li><strong>Opencast Production &amp; HEMM Supervision:</strong> Oversaw daily opencast coal extraction and overburden (OB) removal benches, optimizing Heavy Earth Moving Machinery (shovel, dumper, dozer, drill) deployment and shift continuity.</li>
+                                            <li><strong>Statutory Mine Safety &amp; DGMS Compliance:</strong> Enforced Coal Mines Regulations (CMR 2017), DGMS safety circulars, haul road traffic rules, bench slope stability, dust suppression, and blasting safety clearances.</li>
+                                            <li><strong>Pit Coordination &amp; Reporting:</strong> Conducted statutory pit safety inspections, verified contractor production measurements and shift logs, and coordinated daily targets with Colliery Management and Area GM Office.</li>
+                                        </ul>
+                                        <div class="kpi-badges-row">
+                                            <div class="kpi-badge"><strong>KPI &bull; Safety Governance:</strong> 100% CMR &amp; DGMS statutory compliance with zero reportable incidents</div>
+                                            <div class="kpi-badge"><strong>KPI &bull; Fleet &amp; Face Output:</strong> Sustained daily coal &amp; OB excavation targets across active opencast benches</div>
+                                        </div>
                                     </div>
                                 </div>
                                 
+                                <!-- Role 3 -->
                                 <div class="timeline-node">
                                     <div class="node-marker">3</div>
                                     <div class="node-content">
-                                        <h3>Overman</h3>
-                                        <span class="node-era">Shift Operations Lead</span>
-                                        <p>Qualified CIL/CCL Overman competency certifications. Lead complex coal mine output sections and crew shifts safety.</p>
+                                        <div class="role-header-row">
+                                            <div>
+                                                <h3>Overman / Senior Overman</h3>
+                                                <span class="node-era">Umaria &amp; Pipariya Coal Mines, Johilla Area, South Eastern Coalfields Limited (SECL) &bull; February 1994 &ndash; September 2020</span>
+                                            </div>
+                                        </div>
+                                        <ul class="role-bullets">
+                                            <li><strong>Dual-Colliery Statutory Shift Supervision:</strong> Managed frontline mine operations across both <strong>Umaria</strong> and <strong>Pipariya</strong> Coal Mines, progressing from Overman to Senior Overman through departmental statutory competency certifications.</li>
+                                            <li><strong>Ventilation, Strata &amp; Gas Safety:</strong> Executed pre-shift and in-shift district inspections, noxious/inflammable gas checks, roof bolting and timbering support verification, shot-firing supervision, and statutory Overman daily register compliance.</li>
+                                            <li><strong>Workforce &amp; Production Stewardship:</strong> Directed Mining Sardars, shot-firers, timbermen, and haulage crews to achieve safe shift coal output, resolve underground bottlenecks, and maintain audit-ready production &amp; attendance records.</li>
+                                            <li><strong>All India Mines Rescue Team Captain (From Day 1):</strong> Served as Captain of the <strong>SECL Johilla Area Mine Rescue Team</strong> across <strong>15+ All India Mines Rescue Competitions</strong> over <strong>30+ years</strong> of rescue service, securing <strong>10+ competition prizes with Top-3 national finishes</strong> and leading multiple live emergency missions to rescue trapped/endangered miners from critical hazard zones.</li>
+                                        </ul>
+                                        <div class="kpi-badges-row">
+                                            <div class="kpi-badge"><strong>KPI &bull; Rescue Excellence:</strong> 10+ AIMRC prizes (Top-3 positions) as Captain of Johilla Area across 15+ competitions</div>
+                                            <div class="kpi-badge"><strong>KPI &bull; Crisis Extraction:</strong> Multiple critical live rescue missions safely extracting endangered personnel</div>
+                                            <div class="kpi-badge"><strong>KPI &bull; Dual-Mine Tenure:</strong> 26+ years of compliant shift leadership across Umaria &amp; Pipariya mines</div>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="timeline-node">
-                                    <div class="node-marker">4</div>
-                                    <div class="node-content">
-                                        <h3>Senior Overman</h3>
-                                        <span class="node-era">Senior Shift Controller</span>
-                                        <p>Comprehensive shift logs verification, regulatory hazard evaluations, and production logs audit reconciliation.</p>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Competencies & Mine Rescue / Extracurricular Showcase (2-Column Full Width Row) -->
+                    <div class="resume-two-col full-width-cheat">
+                        <!-- Core Competencies & Technical Skill Set -->
+                        <div class="glass-card resume-competencies-card">
+                            <div class="card-header">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                                <h2>Core Competencies &amp; Technical Skill Set</h2>
+                            </div>
+                            <div class="competency-list">
+                                <div class="competency-group">
+                                    <h4>Mining Operations &amp; Statutory Governance</h4>
+                                    <p>Opencast (HEMM &amp; OB) &amp; Underground Coal Mining, Coal Mines Regulations (CMR 2017), DGMS Statutory Compliance, Pit Safety Audits, Mine Ventilation, Gas Testing, Strata &amp; Slope Control.</p>
                                 </div>
-                                
-                                <div class="timeline-node">
-                                    <div class="node-marker">5</div>
-                                    <div class="node-content">
-                                        <h3>Manager</h3>
-                                        <span class="node-era">Administration & Oversight</span>
-                                        <p>Manager level competency exams qualified. Operations logs oversight, regulatory compliance, and Area level coordination logs control.</p>
-                                    </div>
+                                <div class="competency-group">
+                                    <h4>Coal Dispatch, Siding &amp; Commercial Logistics</h4>
+                                    <p>Railway Rake Indenting &amp; Placement, Siding Turnaround Optimization, Demurrage Mitigation, Electronic Weighbridge Calibration &amp; Audits, Coal Grade / GCV Sampling Reconciliation, SLA Drafting.</p>
                                 </div>
-                                
-                                <div class="timeline-node node-active">
-                                    <div class="node-marker marker-pulse">6</div>
-                                    <div class="node-content">
-                                        <h3>Dispatch Officer</h3>
-                                        <span class="node-status-badge">Current Role</span>
-                                        <p>Commanding end-to-end coal dispatch metrics at CCL Sirka Argada area. Digitised tracking logs with Excel Macros, establishing transparent Service Level Agreements (SLAs) for swift operations.</p>
-                                    </div>
+                                <div class="competency-group">
+                                    <h4>Digital Systems &amp; Reporting</h4>
+                                    <p>SAP Dispatch Module Configuration (Sirka/Argada Area), Advanced Excel Reporting &amp; Formulas, Automated Duplicate/Variance Audits, Paperless Daily MIS Dashboards.</p>
+                                </div>
+                                <div class="competency-group">
+                                    <h4>Statutory Qualifications &amp; Next Leadership Roles</h4>
+                                    <p>Departmental Overman &amp; Managerial Competency Qualifications (Coal India / DGMS), Certified Mine Rescue Captain &bull; Open to Mine Manager, Sub-Area Manager, Senior Operations Lead, Safety Audits &amp; Executive Advisory roles.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mine Rescue Leadership, Awards & Extracurriculars -->
+                        <div class="glass-card resume-awards-card">
+                            <div class="card-header">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                                <h2>Mine Rescue Leadership, Awards &amp; Extracurriculars</h2>
+                            </div>
+                            <div class="awards-stack">
+                                <div class="award-highlight-box">
+                                    <div class="award-badge-pill">30+ Years Active Rescue Service</div>
+                                    <h4>All India Mines Rescue Competition (AIMRC) &mdash; Team Captain</h4>
+                                    <p>Active in Mine Rescue from Day 1 of service; served as <strong>Captain</strong> of the <strong>SECL Johilla Area Mine Rescue Team</strong> across <strong>15+ national competition appearances</strong>, winning <strong>10+ awards and securing Top-3 national podium positions</strong> against premier mining subsidiaries across India.</p>
+                                </div>
+                                <div class="award-highlight-box">
+                                    <div class="award-badge-pill">Live Emergency Operations</div>
+                                    <h4>Critical Mine Rescue &amp; Personnel Extraction Missions</h4>
+                                    <p>Deployed on multiple real-world mine emergency missions involving toxic gas, roof falls, and critical underground hazards&mdash;leading brigade teams to locate and safely extract endangered personnel under extreme operational pressure.</p>
+                                </div>
+                                <div class="award-highlight-box">
+                                    <div class="award-badge-pill">Extracurricular &amp; Mentoring</div>
+                                    <h4>Workforce Training, Safety Weeks &amp; Digital Upskilling</h4>
+                                    <p>Mentored junior Overmen and Mining trainees for Coal India departmental statutory examinations, conducted colliery safety drills and rescue preparedness workshops, and trained dispatch staff on paperless SAP &amp; Excel automation.</p>
                                 </div>
                             </div>
                         </div>
@@ -461,11 +586,11 @@
                         <div class="card-header flex-header-between">
                             <div class="header-tab-title">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                                <h2>Interactive Personal Photos Gallery</h2>
+                                <h2>Executive &amp; Personal Photo Gallery</h2>
                             </div>
                         </div>
                         
-                        <p class="gallery-info-text">Dhananjay ji ki CCL timeline aur family photos below responsive grid tiles me preview karein.</p>
+                        <p class="gallery-info-text">Highlights from Mr. Dhananjay Kumar Singh&rsquo;s Coal India field leadership tenure and family moments.</p>
                         
                         <div class="photo-gallery-grid" id="photo-gallery-container">
                             <!-- Dynamically loaded photo tiles here -->
@@ -2231,7 +2356,7 @@ End Sub</textarea>
         <nav class="bottom-nav">
             <button class="bottom-nav-item active" id="mob-btn-dashboard" onclick="switchTab('dashboard')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                <span>Bio</span>
+                <span>Resume</span>
             </button>
             <button class="bottom-nav-item" id="mob-btn-learning" onclick="switchTab('learning')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
@@ -2244,6 +2369,88 @@ End Sub</textarea>
         </nav>
         
     </div>
+
+    <!-- Coal India Executive Resume Preview & PDF Export Modal -->
+    <div id="resume-preview-modal" class="resume-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="resume-modal-heading">
+        <div class="resume-modal-shell">
+            <div class="resume-modal-toolbar">
+                <div class="resume-modal-title-wrap">
+                    <h3 id="resume-modal-heading">Coal India Executive Resume Preview (English &bull; A4 Standard)</h3>
+                    <span class="resume-modal-sub">Formatted for Coal India / Mining Leadership Roles &mdash; Photo, Contact, Summary, KPIs, Rescue &amp; Extracurriculars</span>
+                </div>
+                <div class="resume-modal-actions">
+                    <button class="btn-resume-tool" id="btn-toggle-resume-editor" onclick="toggleResumeEditor()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        <span>Edit Contact / Statutory Info</span>
+                    </button>
+                    <button class="btn-resume-tool btn-resume-download" onclick="downloadResumePDF()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Download PDF</span>
+                    </button>
+                    <button class="btn-resume-tool btn-resume-print" onclick="printResumePDF()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        <span>Print / Save as PDF</span>
+                    </button>
+                    <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close Resume Preview">&times;</button>
+                </div>
+            </div>
+
+            <!-- Optional Inline Details Customizer -->
+            <div id="resume-editor-drawer" class="resume-editor-drawer hidden">
+                <div class="resume-editor-grid">
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-phone">Phone Number</label>
+                        <input type="text" id="res-edit-phone" class="epfo-input" placeholder="+91 6201745515">
+                    </div>
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-whatsapp">WhatsApp Number</label>
+                        <input type="text" id="res-edit-whatsapp" class="epfo-input" placeholder="+91 6201745515">
+                    </div>
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-email">Email Address</label>
+                        <input type="email" id="res-edit-email" class="epfo-input" placeholder="9dksingh@gmail.com">
+                    </div>
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-location">Location / Address</label>
+                        <input type="text" id="res-edit-location" class="epfo-input" placeholder="Sirka / Argada Area, Ramgarh, Jharkhand">
+                    </div>
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-certs">Statutory Certificates &amp; Competency</label>
+                        <input type="text" id="res-edit-certs" class="epfo-input" placeholder="Overman &amp; Departmental Managerial Competency (CIL / DGMS); Certified Mine Rescue Captain">
+                    </div>
+                    <div class="epfo-field-group">
+                        <label class="epfo-field-label" for="res-edit-education">Academic / Technical Education</label>
+                        <input type="text" id="res-edit-education" class="epfo-input" placeholder="Diploma / Statutory Mining Qualifications &amp; Departmental Competency Certifications">
+                    </div>
+                </div>
+                <div class="resume-editor-actions">
+                    <button class="btn-resume-tool btn-resume-print" onclick="saveResumeCustomFields()">Apply to Resume Preview</button>
+                    <button class="btn-resume-tool" onclick="resetResumeCustomFields()">Reset Defaults</button>
+                </div>
+            </div>
+
+            <!-- Scrollable White-Paper A4 Preview Stage -->
+            <div class="resume-preview-stage">
+                <div id="resume-sheet-document" class="resume-a4-sheet">
+                    <!-- Rendered dynamically by renderResumeDocument() -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Lightbox Modal -->
+    <div id="photo-lightbox-modal" class="photo-lightbox-overlay hidden" onclick="if(event.target === this) closePhotoLightbox()">
+        <div class="photo-lightbox-box">
+            <button class="lightbox-close-btn" onclick="closePhotoLightbox()" aria-label="Close photo">&times;</button>
+            <button class="lightbox-nav-btn lightbox-prev" onclick="navigatePhotoLightbox(-1)" aria-label="Previous photo">&#8249;</button>
+            <img id="lightbox-active-img" src="" alt="Gallery Photo Preview" class="lightbox-img">
+            <button class="lightbox-nav-btn lightbox-next" onclick="navigatePhotoLightbox(1)" aria-label="Next photo">&#8250;</button>
+            <div id="lightbox-active-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Dedicated Print Portal (Visible only during @media print for clean multi-page A4 vector PDF) -->
+    <div id="print-portal" class="print-portal" aria-hidden="true"></div>
     
     <!-- EPFO Auth Modal Overlay -->
     <div id="epfo-auth-modal" class="epfo-modal-overlay hidden">
@@ -2306,7 +2513,8 @@ End Sub</textarea>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="index.js?v=1.0.6"></script>
+    <!-- PDF Export Library & Main Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <script src="index.js?v=1.1.0"></script>
 </body>
 </html>

@@ -405,28 +405,69 @@ code, pre {
 }
 
 .banner-text h3 {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 8px;
     font-family: var(--font-heading);
+    line-height: 1.25;
 }
 
-.banner-text p {
-    font-size: 14px;
-    opacity: 0.9;
-    max-width: 700px;
-    line-height: 1.5;
-}
-
-.banner-badge {
-    background-color: var(--accent-gold);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-family: var(--font-heading);
-    font-size: 12px;
+.banner-eyebrow {
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: #fde68a;
+    margin-bottom: 6px;
+}
+
+.banner-text p {
+    font-size: 13.5px;
+    opacity: 0.92;
+    max-width: 740px;
+    line-height: 1.55;
+}
+
+.banner-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.btn-resume-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-gold);
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius-md);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-resume-export:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-2px);
+}
+
+.banner-badge {
+    background-color: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 /* Tab Switching Panel States */
@@ -489,11 +530,217 @@ code, pre {
     margin: 20px 0;
 }
 
-/* Dashboard Columns Grid */
+/* Dashboard Columns Grid (Desktop: Wide Resume Showcase + Compact Operations Hub Tile) */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1.72fr) minmax(280px, 0.72fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.exec-tenure-pill, .timeline-order-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    background-color: rgba(var(--primary-navy-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-navy-rgb), 0.22);
+    padding: 4px 10px;
+    border-radius: 14px;
+    white-space: nowrap;
+}
+
+/* Executive Profile Strip in Bio Card */
+.resume-profile-strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 16px;
+}
+
+.resume-strip-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid var(--primary-navy);
+    flex-shrink: 0;
+}
+
+.resume-strip-meta h3 {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.resume-strip-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+}
+
+.resume-contact-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 4px 9px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+a.contact-chip:hover {
+    border-color: var(--primary-navy);
+    color: var(--text-primary);
+}
+
+.contact-chip svg {
+    width: 13px;
+    height: 13px;
+    color: var(--primary-navy);
+    flex-shrink: 0;
+}
+
+/* Role Timeline Enhancements (Bullets & KPIs) */
+.role-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.role-bullets {
+    margin: 8px 0 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.role-bullets li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.role-bullets li strong {
+    color: var(--text-primary);
+}
+
+.kpi-badges-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.kpi-badge {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: var(--border-radius-sm);
+    padding: 8px 10px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+.kpi-badge strong {
+    color: var(--text-primary);
+}
+
+/* 2-Column Competencies & Rescue Awards Row */
+.resume-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.resume-two-col .glass-card {
+    margin-bottom: 0;
+}
+
+.competency-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.competency-group {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--primary-navy);
+    border-radius: var(--border-radius-md);
+    padding: 12px 14px;
+}
+
+.competency-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.competency-group p {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.awards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.award-highlight-box {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: var(--border-radius-md);
+    padding: 12px 14px;
+}
+
+.award-badge-pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent-gold);
+    background-color: var(--accent-gold-light);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+.award-highlight-box h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.award-highlight-box p {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 /* Timeline vertical card height adjusts */
@@ -646,6 +893,7 @@ code, pre {
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed);
 }
 
@@ -667,6 +915,7 @@ code, pre {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     transition: transform 0.3s ease;
 }
 
@@ -2393,10 +2642,55 @@ code, pre {
         padding: 4px 10px;
     }
     
-    /* Layout grid collapses into single columns */
+    /* Layout grid collapses into single column on mobile with Resume Details first & CIL Hub strictly LAST */
     .dashboard-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .bio-card { order: 1; }
+    .career-journey-card { order: 2; }
+    .resume-two-col {
+        order: 3;
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+    .gallery-card { order: 4; }
+    .ccl-info-card { order: 99; }
+
+    .banner-actions {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .btn-resume-export {
+        justify-content: center;
+    }
+
+    .resume-profile-strip {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .mobile-resume-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background-color: var(--accent-gold);
+        color: #ffffff;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 16px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
     }
     
     .cheatsheet-intro {
@@ -2595,11 +2889,101 @@ code, pre {
 }
 
 /* -------------------------------------------------------------
-   10. CIL / CCL PORTAL HUB STYLES
+   10. CIL / CCL PORTAL HUB STYLES (Compact Tile on Desktop)
    ------------------------------------------------------------- */
 .ccl-info-card {
     display: flex;
     flex-direction: column;
+}
+
+.ccl-info-card.compact-hub-card {
+    padding: 16px;
+}
+
+.ccl-info-card.compact-hub-card .card-header {
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.ccl-info-card.compact-hub-card .card-header h2 {
+    font-size: 14.5px;
+    line-height: 1.25;
+}
+
+.ccl-info-card.compact-hub-card .card-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.ccl-info-card.compact-hub-card .ccl-hub-tabs {
+    gap: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.ccl-info-card.compact-hub-card .ccl-hub-tab {
+    padding: 5px 9px;
+    font-size: 11px;
+    flex: 1;
+    text-align: center;
+}
+
+.ccl-info-card.compact-hub-card .stock-ticker-box {
+    padding: 12px;
+    margin-bottom: 8px;
+}
+
+.ccl-info-card.compact-hub-card .stock-price {
+    font-size: 24px;
+}
+
+.ccl-info-card.compact-hub-card .stock-currency {
+    font-size: 15px;
+}
+
+.ccl-info-card.compact-hub-card .stock-change {
+    font-size: 12px;
+}
+
+.ccl-info-card.compact-hub-card .stock-updated-time {
+    margin-bottom: 10px;
+}
+
+.ccl-info-card.compact-hub-card .stock-stats-grid {
+    gap: 8px;
+    padding-top: 10px;
+}
+
+.ccl-info-card.compact-hub-card .stock-stat-item .val {
+    font-size: 11.5px;
+}
+
+.ccl-info-card.compact-hub-card .search-input-group input {
+    padding: 7px 10px;
+    font-size: 11.5px;
+}
+
+.ccl-info-card.compact-hub-card .btn-search-stock {
+    padding: 7px 12px;
+    font-size: 11.5px;
+}
+
+.ccl-info-card.compact-hub-card .watchlist-items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+    gap: 7px;
+}
+
+.ccl-info-card.compact-hub-card .watchlist-item {
+    padding: 7px 9px;
+}
+
+.ccl-info-card.compact-hub-card .watchlist-sym {
+    font-size: 11.5px;
+}
+
+.ccl-info-card.compact-hub-card .watchlist-price {
+    font-size: 11px;
 }
 
 .live-pulse-badge {
@@ -3470,5 +3854,533 @@ code, pre {
 .bottom-nav-item.active {
     font-weight: 700;
 }
+
+/* -------------------------------------------------------------
+   11. EXECUTIVE RESUME PREVIEW MODAL & A4 PRINT SHEET
+   ------------------------------------------------------------- */
+.resume-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(6px);
+    z-index: 2500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.resume-modal-shell {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    width: 100%;
+    max-width: 960px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+}
+
+.resume-modal-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.resume-modal-title-wrap h3 {
+    font-size: 15px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.resume-modal-sub {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+}
+
+.resume-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-resume-tool {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-resume-tool:hover {
+    border-color: var(--primary-navy);
+}
+
+.btn-resume-download {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+}
+
+.btn-resume-download:hover {
+    background-color: var(--accent-gold-hover);
+}
+
+.btn-resume-print {
+    background-color: var(--primary-navy);
+    border-color: var(--primary-navy);
+    color: #ffffff;
+}
+
+.btn-resume-print:hover {
+    background-color: var(--primary-navy-hover);
+}
+
+.resume-modal-close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0 6px;
+}
+
+.resume-modal-close:hover {
+    color: var(--text-primary);
+}
+
+.resume-editor-drawer {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 20px;
+}
+
+.resume-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px 14px;
+    margin-bottom: 12px;
+}
+
+.resume-editor-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.resume-preview-stage {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #cbd5e1;
+    padding: 24px 16px;
+}
+
+[data-theme="dark"] .resume-preview-stage {
+    background-color: #0b1120;
+}
+
+/* Formal Coal India Executive A4 Resume White-Paper Styling */
+.resume-a4-sheet {
+    width: 100%;
+    max-width: 210mm;
+    min-height: auto;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 12mm 14mm 11mm 14mm;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.38;
+}
+
+.res-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    border-bottom: 2.5px solid #1e3a8a;
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.res-header-info {
+    flex: 1;
+}
+
+.res-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.res-designation {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 1px;
+}
+
+.res-designation-sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 3px;
+}
+
+.res-sub-org {
+    font-size: 11px;
+    font-weight: 600;
+    color: #b45309;
+    margin-bottom: 8px;
+}
+
+.res-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 14px;
+    font-size: 10.5px;
+    color: #334155;
+}
+
+.res-contact-item strong {
+    color: #0f172a;
+}
+
+.res-photo-frame {
+    width: 92px;
+    height: 110px;
+    border: 2px solid #1e3a8a;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #f8fafc;
+}
+
+.res-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.res-section {
+    margin-bottom: 9px;
+}
+
+.res-section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #1e3a8a;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+.res-summary-text {
+    font-size: 10.4px;
+    color: #1e293b;
+    text-align: justify;
+    margin-bottom: 7px;
+}
+
+.res-kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    margin-bottom: 3px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.res-kpi-box {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-top: 2.5px solid #d97706;
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+
+.res-kpi-val {
+    font-size: 10.6px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.res-kpi-lbl {
+    font-size: 9px;
+    color: #475569;
+}
+
+.res-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 12px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.res-skill-cat {
+    font-size: 10px;
+    color: #1e293b;
+}
+
+.res-skill-cat strong {
+    display: block;
+    color: #0f172a;
+    font-size: 10.2px;
+    margin-bottom: 1px;
+}
+
+.res-exp-block {
+    margin-bottom: 8px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.res-exp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.res-exp-role {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.res-exp-dates {
+    font-size: 10.2px;
+    font-weight: 700;
+    color: #1e3a8a;
+    white-space: nowrap;
+}
+
+.res-exp-org {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #b45309;
+    margin-bottom: 4px;
+}
+
+.res-bullets {
+    margin: 0 0 5px 16px;
+    padding: 0;
+}
+
+.res-bullets li {
+    font-size: 10.3px;
+    color: #1e293b;
+    margin-bottom: 2.5px;
+}
+
+.res-role-kpis {
+    background-color: #f8fafc;
+    border-left: 2.5px solid #1e3a8a;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: #334155;
+}
+
+.res-role-kpis strong {
+    color: #0f172a;
+}
+
+.res-dossier-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 14px;
+    font-size: 10.3px;
+    color: #1e293b;
+}
+
+.res-declaration {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 10px;
+    color: #475569;
+    break-inside: avoid;
+}
+
+.res-signature {
+    text-align: right;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 10.8px;
+}
+
+.print-portal {
+    display: none;
+}
+
+/* Photo Gallery Lightbox Modal */
+.photo-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(6px);
+    z-index: 2600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.photo-lightbox-box {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+}
+
+.lightbox-caption {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    padding: 0 24px;
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
+.lightbox-close-btn:hover, .lightbox-nav-btn:hover {
+    background: var(--primary-navy);
+}
+
+@media (max-width: 768px) {
+    .resume-a4-sheet {
+        padding: 16px 14px;
+        min-height: auto;
+    }
+    .res-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+    .res-contact-grid,
+    .res-kpi-strip,
+    .res-skills-grid,
+    .res-dossier-grid {
+        grid-template-columns: 1fr;
+    }
+    .res-exp-head {
+        flex-direction: column;
+        gap: 2px;
+    }
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+    }
+    html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        height: auto !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    body > *:not(#print-portal) {
+        display: none !important;
+    }
+    #print-portal {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        background: #ffffff !important;
+    }
+    #print-portal .resume-a4-sheet {
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+    }
+}
+
 
 
