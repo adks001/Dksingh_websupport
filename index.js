@@ -3030,17 +3030,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // COAL INDIA EXECUTIVE RESUME PREVIEW & PDF EXPORT CONTROLLER
 // -------------------------------------------------------------
 const DEFAULT_RESUME_PROFILE = {
-    phone: "+91 6201745515",
-    whatsapp: "+91 6201745515",
+    phone: "+91 8959219151",
+    whatsapp: "+91 8959219151",
     email: "9dksingh@gmail.com",
-    location: "Sirka / Argada Area, Ramgarh, Jharkhand, India",
-    certs: "Overman & Departmental Managerial Competency Qualifications (Coal India Ltd. / DGMS); Certified Mine Rescue Captain",
-    education: "Statutory Mining & Departmental Competency Qualifications (Coal India Limited / DGMS)"
+    location: "Sirka / Argada, Ramgarh, Jharkhand",
+    certs: "DGMS Statutory & Managerial Competency Qualifications (Coal India Ltd. / DGMS); Certified Mine Rescue Captain",
+    education: "Statutory Mining & DGMS Competency Qualifications (Coal India Limited / DGMS)"
 };
 
 function getResumeProfileFields() {
     try {
-        const saved = JSON.parse(localStorage.getItem('resume_custom_fields'));
+        const saved = JSON.parse(localStorage.getItem('resume_custom_fields_v3'));
         return saved ? { ...DEFAULT_RESUME_PROFILE, ...saved } : { ...DEFAULT_RESUME_PROFILE };
     } catch (e) {
         return { ...DEFAULT_RESUME_PROFILE };
@@ -3066,8 +3066,7 @@ function renderResumeDocument() {
         <header class="res-header">
             <div class="res-header-info">
                 <div class="res-name">Dhananjay Kumar Singh</div>
-                <div class="res-designation">Senior Coal Mining Operations &amp; Dispatch Leader</div>
-                <div class="res-designation-sub">Retired Dispatch Officer &amp; Former Assistant Manager</div>
+                <div class="res-designation">Senior Coal Mining Operations | Assistant Manager | Dispatch Officer</div>
                 <div class="res-sub-org">Coal India Limited (CCL &amp; SECL) &bull; 32+ Years Service (Feb 1994 &ndash; Oct 2026, Retired)</div>
                 <div class="res-contact-grid">
                     <div class="res-contact-item"><strong>Phone:</strong> ${escapeHtmlSafe(p.phone)}</div>
@@ -3075,7 +3074,7 @@ function renderResumeDocument() {
                     <div class="res-contact-item"><strong>Email:</strong> ${escapeHtmlSafe(p.email)}</div>
                     <div class="res-contact-item"><strong>Location:</strong> ${escapeHtmlSafe(p.location)}</div>
                     <div class="res-contact-item"><strong>Portfolio:</strong> dksingh-websupport.onrender.com</div>
-                    <div class="res-contact-item"><strong>Target Roles:</strong> Mine Manager, Sub-Area Manager, Operations Head &amp; Advisory</div>
+                    <div class="res-contact-item"><strong>Target Roles:</strong> Mines PO Manager | Advisory Consulting</div>
                 </div>
             </div>
             <div class="res-photo-frame">
@@ -3086,24 +3085,24 @@ function renderResumeDocument() {
         <section class="res-section">
             <h4 class="res-section-title">Professional Summary</h4>
             <p class="res-summary-text">
-                Seasoned Mining &amp; Coal Operations Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, who retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL. Commenced career on the frontline as a statutory Mining Overman and advanced through progressive departmental examinations to Senior Overman, Assistant Manager, and Dispatch Officer. Possesses end-to-end expertise across underground and opencast production planning, Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement. Spearheaded digital transformation across the Sirka / Argada Area by configuring SAP dispatch workflows and developing paperless Advanced Excel reporting systems that eliminated redundant manual work, saving substantial manpower and operational effort. Decorated All India Mines Rescue veteran (30+ years service) who served as <strong>Captain</strong> for the SECL Johilla Area Mine Rescue Team across 15+ competition appearances, securing 10+ Top-3 prizes and leading live emergency extraction missions. Open to senior leadership opportunities including Mine Manager, Sub-Area Manager, Senior Operations Lead, and Executive Advisory based on organizational need.
+                Seasoned Mining &amp; Coal Operations Dispatch Leader with over <strong>32+ years</strong> (February 1994 &ndash; October 2026) of progressive leadership across <strong>Coal India Limited (CCL &amp; SECL)</strong>, retired in October 2026 as <strong>Dispatch Officer</strong> at OCP Argada Area, CCL. Commenced career on the frontline as a statutory Mining Overman and advanced through progressive DGMS examinations to Assistant Manager and Dispatch Officer. Proven track record of consistently meeting and exceeding coal production targets across multiple collieries while maintaining end-to-end expertise in Coal Mines Regulations (CMR) &amp; DGMS safety governance, workforce supervision, railway siding &amp; rake coordination, weighbridge &amp; grade quality audits, and SLA enforcement. Spearheaded digital transformation across the Sirka / Argada Area by configuring SAP dispatch workflows and developing paperless Advanced Excel reporting systems that eliminated redundant manual work, saved substantial manpower, and minimized operational and revenue losses. Decorated All India Mines Rescue veteran (<strong>25+ years service</strong>) who served as <strong>Captain</strong> for the SECL and Johilla Area Mine Rescue Team across competition appearances, securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions. Open to senior leadership opportunities including <strong>Mines PO Manager</strong> and <strong>Advisory Consulting</strong> based on organizational need.
             </p>
             <div class="res-kpi-strip">
                 <div class="res-kpi-box">
                     <div class="res-kpi-val">32+ Years (1994&ndash;2026)</div>
-                    <div class="res-kpi-lbl">Coal India Tenure (SECL &amp; CCL)</div>
+                    <div class="res-kpi-lbl">SECL &amp; CCL (Johilla, NK &amp; Argada Areas)</div>
                 </div>
                 <div class="res-kpi-box">
-                    <div class="res-kpi-val">Saved Manpower</div>
-                    <div class="res-kpi-lbl">SAP &amp; Advanced Excel Reporting</div>
+                    <div class="res-kpi-val">Production Target Leader</div>
+                    <div class="res-kpi-lbl">Consistently met &amp; exceeded coal output targets</div>
                 </div>
                 <div class="res-kpi-box">
-                    <div class="res-kpi-val">15+ Captain / 10+ Prizes</div>
-                    <div class="res-kpi-lbl">All India Mines Rescue (Top-3)</div>
+                    <div class="res-kpi-val">Saved Manpower &amp; Losses</div>
+                    <div class="res-kpi-lbl">Minimized operational losses via SAP &amp; Adv. Excel</div>
                 </div>
                 <div class="res-kpi-box">
-                    <div class="res-kpi-val">2 Subsidiaries, 3 Areas</div>
-                    <div class="res-kpi-lbl">Johilla, North Karanpura &amp; Argada</div>
+                    <div class="res-kpi-val">25+ Yrs | 10+ Top-3 Prizes</div>
+                    <div class="res-kpi-lbl">SECL &amp; Johilla Mine Rescue Captain</div>
                 </div>
             </div>
         </section>
@@ -3125,7 +3124,7 @@ function renderResumeDocument() {
                 </div>
                 <div class="res-skill-cat">
                     <strong>Crisis Rescue &amp; Executive Leadership</strong>
-                    Mine Rescue Captaincy &amp; Live Extractions, Departmental Competency Mentoring, Railway &amp; Power Utility Stakeholder Coordination, Multi-Shift Workforce Leadership.
+                    Mine Rescue Captaincy &amp; Live Extractions, DGMS Exam Mentoring, Railway &amp; Power Utility Stakeholder Coordination, Multi-Shift Workforce Leadership.
                 </div>
             </div>
         </section>
@@ -3173,13 +3172,13 @@ function renderResumeDocument() {
                 </div>
                 <div class="res-exp-org">Umaria &amp; Pipariya Coal Mines, Johilla Area, South Eastern Coalfields Limited (SECL)</div>
                 <ul class="res-bullets">
-                    <li>Executed statutory shift supervision across both <strong>Umaria</strong> and <strong>Pipariya</strong> Coal Mines, advancing from Overman to Senior Overman through departmental statutory competency exams.</li>
+                    <li>Executed statutory shift supervision across both <strong>Umaria</strong> and <strong>Pipariya</strong> Coal Mines, advancing through progressive DGMS competency examinations.</li>
                     <li>Conducted pre-shift and in-shift district safety inspections, noxious/inflammable gas testing, ventilation monitoring, roof bolting/timbering support verification, and Overman daily statutory register compliance.</li>
                     <li>Supervised Mining Sardars, shot-firers, timbermen, and haulage crews to achieve safe coal production targets, audit production tallies, and mitigate underground operational hazards.</li>
-                    <li>Served as <strong>Captain</strong> of the <strong>SECL Johilla Area Mine Rescue Team</strong> from Day 1 across <strong>15+ All India Mines Rescue Competitions</strong> (30+ years active rescue involvement), winning <strong>10+ prizes (Top-3 national positions)</strong> and leading critical live extraction missions.</li>
+                    <li>Served as <strong>Captain</strong> of the <strong>SECL and Johilla Area Mine Rescue Team</strong> across competition appearances (<strong>25+ years active rescue service</strong>), securing <strong>10+ Top-3 prizes</strong> and leading live emergency extraction missions.</li>
                 </ul>
                 <div class="res-role-kpis">
-                    <strong>Key KPIs:</strong> 10+ All India Mines Rescue prizes (Top-3 finishes) as Captain across 15+ competitions &bull; Multiple lives/personnel extracted in critical emergencies &bull; 26+ years compliant dual-mine shift leadership.
+                    <strong>Key KPIs:</strong> 10+ All India Mines Rescue Top-3 prizes as Captain for SECL &amp; Johilla Area (25+ yrs rescue service) &bull; Multiple lives/personnel extracted in critical emergencies &bull; 26+ years compliant dual-mine shift leadership.
                 </div>
             </div>
         </section>
@@ -3187,9 +3186,9 @@ function renderResumeDocument() {
         <section class="res-section">
             <h4 class="res-section-title">Mine Rescue Awards &amp; Extracurricular Leadership</h4>
             <ul class="res-bullets">
-                <li><strong>All India Mines Rescue Competition (AIMRC) &mdash; Johilla Area Captain:</strong> Served as Captain of the SECL Johilla Area Rescue Team across 15+ national competitions over 30+ years of rescue service, winning <strong>10+ competition awards with Top-3 podium finishes</strong>.</li>
+                <li><strong>All India Mines Rescue Competition (AIMRC) &mdash; SECL &amp; Johilla Area Captain:</strong> Served as Captain of the SECL and Johilla Area Rescue Team across competition appearances over 25+ years of rescue service, securing <strong>10+ Top-3 prizes</strong>.</li>
                 <li><strong>Emergency Rescue &amp; Live Extraction Missions:</strong> Participated in and led multiple critical real-world rescue operations to extract personnel from dangerous, life-threatening underground mine conditions.</li>
-                <li><strong>Training, Mentoring &amp; Safety Advocacy:</strong> Mentored junior Overmen and Mining staff for departmental competency exams, organized colliery safety weeks &amp; rescue drills, and trained dispatch staff on SAP and Advanced Excel workflows.</li>
+                <li><strong>Training, Mentoring &amp; Safety Advocacy:</strong> Mentored junior Overmen and Mining staff for DGMS competency exams, organized colliery safety weeks &amp; rescue drills, and trained dispatch staff on SAP and Advanced Excel workflows.</li>
             </ul>
         </section>
 
@@ -3199,7 +3198,7 @@ function renderResumeDocument() {
                 <div><strong>Statutory Competency:</strong> ${escapeHtmlSafe(p.certs)}</div>
                 <div><strong>Technical Education:</strong> ${escapeHtmlSafe(p.education)}</div>
                 <div><strong>Languages Known:</strong> English, Hindi</div>
-                <div><strong>Next Career Opportunity:</strong> Open to Mine Manager, Sub-Area Manager, Senior Operations / Dispatch Head, Safety Audit Lead &amp; Executive Advisory roles (Full-Time or Consulting based on organizational need)</div>
+                <div><strong>Target Roles:</strong> Mines PO Manager | Advisory Consulting (based on organizational need)</div>
             </div>
             <div class="res-declaration">
                 <div>I hereby declare that the operational records and details stated above are true and accurate to the best of my knowledge.</div>
@@ -3250,14 +3249,14 @@ function saveResumeCustomFields() {
         certs: (document.getElementById('res-edit-certs')?.value || '').trim() || DEFAULT_RESUME_PROFILE.certs,
         education: (document.getElementById('res-edit-education')?.value || '').trim() || DEFAULT_RESUME_PROFILE.education
     };
-    localStorage.setItem('resume_custom_fields', JSON.stringify(updated));
+    localStorage.setItem('resume_custom_fields_v3', JSON.stringify(updated));
     renderResumeDocument();
     const drawer = document.getElementById('resume-editor-drawer');
     if (drawer) drawer.classList.add('hidden');
 }
 
 function resetResumeCustomFields() {
-    localStorage.removeItem('resume_custom_fields');
+    localStorage.removeItem('resume_custom_fields_v3');
     openResumeModal();
 }
 
